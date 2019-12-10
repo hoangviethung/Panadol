@@ -22,6 +22,17 @@ section {
 	display: block;
 }
 
+body {
+	margin          : 0;
+	font-family     : Roboto;
+	text-align      : left;
+	font-size       : 16px;
+	font-weight     : 400;
+	line-height     : 1.5;
+	color           : #1c1c1c;
+	background-color: #ffffff;
+}
+
 [tabindex="-1"]:focus {
 	outline: 0 !important;
 }
