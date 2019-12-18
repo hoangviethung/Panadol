@@ -101,6 +101,18 @@ const clickGoTop = () => {
 	}
 }
 
+function fancyboxOninit() {
+	const video = document.querySelector('.index-3 .swiper-container video');
+
+	$('#fancyboxOninit').fancybox({
+		afterClose: function() {
+			video.play()
+		}
+	})
+
+	$('#fancyboxOninit').trigger('click')
+}
+
 function sliderBigIMG() {
 	var slideBigIMG = new Swiper('.index-3 .swiper-container', {
 		speed: 1000,
@@ -120,26 +132,12 @@ function sliderBigIMG() {
 				const pause_video = document.querySelector('.index-3 .swiper-container .swiper-slide video');
 				if (video) {
 					video.play();
-					console.log('play');
 				} else {
 					pause_video.pause();
-					console.log('pause');
 				}
 			}
 		}
 	});
-}
-
-function fancyboxOninit() {
-	const video = document.querySelector('.index-3 .swiper-container video');
-
-	$('#fancyboxOninit').fancybox({
-		afterClose: function() {
-			video.play()
-		}
-	})
-
-	$('#fancyboxOninit').trigger('click')
 }
 
 function sliderChooseCard() {
@@ -280,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// SVG CONTROL
 	SVG();
 	// FANCYBOX
-	// fancyboxOninit();
+	fancyboxOninit();
 	// MENU
 	scrollMenu();
 	clickGoTop();

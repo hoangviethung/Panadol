@@ -49,6 +49,16 @@ footer {
 	@media (max-width: 767.98px) {
 		padding: 25px 0;
 
+		.social-media {
+			ul {
+				li {
+					img {
+						width: 80%;
+					}
+				}
+			}
+		}
+
 		.text-footer {
 			p {
 				font-size: 14px;
