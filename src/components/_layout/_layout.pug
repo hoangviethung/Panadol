@@ -26,6 +26,10 @@ html(lang="en")
 			#js-page-verify(class=bodyClass hidden)
 		block footer
 			include _footer.pug
+		.overlay
+		a.d-none#fancyboxOninit(data-fancybox href="#myVideo")
+			video#myVideo(controls data-width="100%" data-height="100%")
+				source(src="assets/videos/video.mp4")
 		script(type="text/javascript", src="./js/core.min.js")
 		script(type="text/javascript", src="./js/main.min.js")
 		block scripts

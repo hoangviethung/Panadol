@@ -1,0 +1,61 @@
+.index-2#index-2
+	.step-1
+		.container
+			.title
+				img.ofc(src="./assets/images/background/bg-title.png", alt="", srcset="")
+				h2 gửi thiệp tân xuân
+			.block-section
+				.row.list-task
+					.choose-image.col-lg-4
+						h3 chọn thiệp
+						.list-item
+							.item.checked
+								figure
+									img.ofc(src="./assets/images/item-choose-img/1.png", alt="", srcset="")
+							-for(i=2;i<7;i++)
+								.item
+									figure
+										img.ofc(src="./assets/images/item-choose-img/"+i+".png", alt="", srcset="")
+					.result.col-lg-4
+						h3 chọn bìa thiệp
+						.slider-choose-card
+							.swiper-container
+								.swiper-wrapper
+									.swiper-slide
+										figure.checked
+											img(src="./assets/images/item-choose-card/1.png", alt="")
+									-for(j=2;j<10;j++)
+										.swiper-slide
+											figure
+												img(src="./assets/images/item-choose-card/"+j+".png", alt="")
+							.swiper-button-prev
+							.swiper-button-next
+						.result-choose-img
+							figure
+								.block-img
+									img.ofc(src="", alt="", srcset="")
+								figcaption
+									p
+					.block-write-content.col-lg-4
+						h3 chọn câu chúc
+						.write-content
+							.choose-to-write
+								.item.checked  Vạn Sự Như Ý, Phát Tài Phát Lộc
+								.item Canh Tý Sum Vầy, An Lành Trọn Năm
+									br
+									| Phát Tài, Phát Lộc, Phát Tình Duyên
+								.item Năm mới Tết đến – Rước hên vào nhà – Quà cáp bao la – Mọi nhà no đủ
+								.item Chúc mọi người vui vẻ như Chim Sẻ, khỏe mạnh như Đại Bàng, giàu sang như chim Phụng, làm lụng như chim Sâu, sống lâu như Đà Điểu
+								.item Năm Mới Cung Chúc: Sức Khỏe Dồi Dào, Vạn Sự Như Ý
+								.item  An Nhiên Hưởng Tết, Không Lo Nhức Đầu
+							.write
+								.form-group
+									textarea(maxlength="100")
+									.list-bottom
+										.background
+											span.checked(data-bg="black")
+											span(data-bg="white")
+										.count-characters
+											p Còn 
+												span 100 
+												| ký tự
