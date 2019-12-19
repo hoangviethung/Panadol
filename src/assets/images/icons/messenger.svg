@@ -1,0 +1,12 @@
+<svg width="128" height="128" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_1" width="128" height="128" fill-rule="evenodd" fill="none" clip-rule="evenodd"/>
+  <path stroke="null" id="Facebook_Messenger" fill-rule="evenodd" fill="#ffffff" d="m69.345715,77.281915l-13.698818,-14.609943l-26.729421,14.609943l29.402279,-31.213603l14.033345,14.610783l26.395734,-14.610783l-29.403119,31.213603zm-5.345716,-67.075288c-29.709069,0 -53.793369,22.299873 -53.793369,49.808457c0,15.674883 7.822733,29.656116 20.047276,38.7867l0,18.991581l18.315802,-10.052636c4.888472,1.352399 10.066925,2.082812 15.430292,2.082812c29.709069,0 53.793369,-22.299873 53.793369,-49.808457s-24.0843,-49.808457 -53.793369,-49.808457z" clip-rule="evenodd"/>
+ </g>
+</svg>

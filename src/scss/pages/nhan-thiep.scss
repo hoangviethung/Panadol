@@ -1,0 +1,32 @@
+.nhan-thiep {
+	position         : relative;
+	background       : url(../assets/images/background/bg-index-3.png);
+	background-size  : cover;
+	background-repeat: no-repeat;
+	height           : 100vh;
+	padding-top      : 50px;
+	overflow         : hidden;
+
+	.block-nhan-thiep {
+		margin-top: 50px;
+
+		.card {
+			cursor       : pointer;
+			position     : relative;
+			border-radius: 3px;
+			border       : 3px solid #ffe618;
+			background   : #e11931;
+			margin       : 0 auto;
+			overflow     : hidden;
+			width        : 300px;
+			height       : 500px;
+
+			.icon {
+				top      : 50%;
+				left     : 50%;
+				transform: translate(-50%, -50%);
+				position : absolute;
+			}
+		}
+	}
+}

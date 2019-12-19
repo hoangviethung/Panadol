@@ -1,0 +1,29 @@
+doctype html
+
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		title Nhận thiệp
+		link(rel="stylesheet", href="./css/core.min.css")
+		link(rel="stylesheet", href="./css/main.min.css")
+	body
+		#loading
+			.logo-loader
+				img(src="./assets/images/icons/loading.svg", alt="")
+			.progstat-wrapper Loading:
+				span#progstat 0
+				| %
+			#progress
+		section.nhan-thiep
+			.container
+				.title
+					img.ofc(src="./assets/images/background/bg-title.png", alt="", srcset="")
+					h2 chúc mừng năm mới
+				.block-nhan-thiep
+					.card.wow.bounce(data-wow-iteration="100")
+						.icon
+							img(src="./assets/images/item-choose-card/1.png", alt="", srcset="")
+		script(type="text/javascript", src="./js/core.min.js")
+		script(type="text/javascript", src="./js/main.min.js")

@@ -27,9 +27,21 @@ html(lang="en")
 		block footer
 			include _footer.pug
 		.overlay
-		a.d-none#fancyboxOninit(data-fancybox href="#myVideo")
-			video#myVideo(controls data-width="100%" data-height="100%")
-				source(src="assets/videos/video.mp4")
+		.d-none
+			.block-popup#send-mail
+				form(action="#" method="method")
+					.form-group
+						label Tới :
+						input.from(type="text")
+					.form-group
+						label Tiêu đề :
+						input.title-mail(type="text")
+					.form-group
+						label.textarea Nội dung :
+						textarea(name="", cols="30", rows="10")
+					.form-group
+						button gửi
+		a.d-none#fancyboxOninit(data-fancybox href="https://www.youtube.com/watch?v=9BUjXZ-zc9k")
 		script(type="text/javascript", src="./js/core.min.js")
 		script(type="text/javascript", src="./js/main.min.js")
 		block scripts

@@ -1,10 +1,11 @@
 .index-2#index-2
-	.step-1
-		.container
-			.title
-				img.ofc(src="./assets/images/background/bg-title.png", alt="", srcset="")
-				h2 gửi thiệp tân xuân
-			.block-section
+	.container
+		.title
+			img.ofc(src="./assets/images/background/bg-title.png", alt="", srcset="")
+			h2 gửi thiệp tân xuân
+		.block-section
+			//- BƯỚC 1
+			.step-1
 				.row.list-task
 					.choose-image.col-lg-4
 						h3 chọn thiệp
@@ -36,6 +37,10 @@
 									img.ofc(src="", alt="", srcset="")
 								figcaption
 									p
+						.list-step
+							.button-next-step
+								span tiếp theo
+								img(src="./assets/images/icons/arrow-next-step.svg", alt="", srcset="")
 					.block-write-content.col-lg-4
 						h3 chọn câu chúc
 						.write-content
@@ -52,10 +57,53 @@
 								.form-group
 									textarea(maxlength="100")
 									.list-bottom
-										.background
-											span.checked(data-bg="black")
+										.color-content
+											span.checked
 											span(data-bg="white")
 										.count-characters
 											p Còn 
 												span 100 
 												| ký tự
+			//- BƯỚC 2
+			.step-2
+				.title-step-2 thông tin của bạn
+				.block-form-step-2
+					form(action="#" method="method")
+						.form-group
+							label Tên:
+							.input-form
+								input(type="text" placeholder="Nhập tên của bạn")
+						.form-group
+							label SĐT:
+							.input-form
+								input(type="text" placeholder="Nhập số điện thoại")
+						.form-group
+							label Email:
+							.input-form
+								input(type="text" placeholder="Địa chỉ email")
+						.list-step
+							.button-prev-step
+								img(src="./assets/images/icons/arrow-prev-step.svg", alt="", srcset="")
+								span trở lại
+							.button-next-step
+								span tiếp theo
+								img(src="./assets/images/icons/arrow-next-step.svg", alt="", srcset="")
+			//- BƯỚC 3
+			.step-3
+				.title-step-3 chia sẻ ngay
+				.list-share-social-media
+					.item.facebook
+						img.svg(src="./assets/images/icons/facebook.svg", alt="", srcset="")
+						h5 chia sẻ ngay
+					.item.messenger
+						img.svg(src="./assets/images/icons/messenger.svg", alt="", srcset="")
+						h5 chia sẻ ngay
+					.item.zalo
+						img(src="./assets/images/icons/zalo.png", alt="", srcset="")
+						h5 chia sẻ ngay
+					.item.mail(data-fancybox data-src="#send-mail")
+						img.svg(src="./assets/images/icons/mail.svg", alt="", srcset="")
+						h5 chia sẻ ngay
+					.item.download
+						img.svg(src="./assets/images/icons/download.svg", alt="", srcset="")
+						h5 tải về máy

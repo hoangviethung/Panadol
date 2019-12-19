@@ -102,14 +102,6 @@ const clickGoTop = () => {
 }
 
 function fancyboxOninit() {
-	const video = document.querySelector('.index-3 .swiper-container video');
-
-	$('#fancyboxOninit').fancybox({
-		afterClose: function() {
-			video.play()
-		}
-	})
-
 	$('#fancyboxOninit').trigger('click')
 }
 
@@ -124,32 +116,40 @@ function sliderBigIMG() {
 			nextEl: '.index-3 .swiper-button-next',
 			prevEl: '.index-3 .swiper-button-prev',
 		},
-		on: {
-			slideChangeTransitionEnd: function() {
-				// VDIEO CHẠY
-				const video = document.querySelector('.index-3 .swiper-container .swiper-slide-active video');
-				// VIDEO DỪNG
-				const pause_video = document.querySelector('.index-3 .swiper-container .swiper-slide video');
-				if (video) {
-					video.play();
-				} else {
-					pause_video.pause();
-				}
-			}
-		}
+		// on: {
+		// 	slideChangeTransitionEnd: function() {
+		// 		// VDIEO CHẠY
+		// 		const video = document.querySelector('.index-3 .swiper-container .swiper-slide-active video');
+		// 		// VIDEO DỪNG
+		// 		const pause_video = document.querySelector('.index-3 .swiper-container .swiper-slide video');
+		// 		if (video) {
+		// 			video.play();
+		// 		} else {
+		// 			pause_video.pause();
+		// 		}
+		// 	}
+		// }
 	});
 }
 
 function sliderChooseCard() {
-	var sliderChooseCard = new Swiper('.slider-choose-card .swiper-container', {
+	// SLIDE CHỌN CARD
+	var slideChooseCard = new Swiper('.slider-choose-card .swiper-container', {
+		observer: true,
+		observeParents: true,
 		simulateTouch: false,
-		slidesPerView: 5,
+		slidesPerView: 4,
 		spaceBetween: 8,
 		// Navigation arrows
 		navigation: {
 			nextEl: '.slider-choose-card .swiper-button-next',
 			prevEl: '.slider-choose-card .swiper-button-prev',
 		},
+		breakpoints: {
+			768: {
+				slidesPerView: 5,
+			},
+		}
 	});
 }
 
@@ -207,9 +207,15 @@ function chooseContentDefault() {
 }
 
 function chooseBackground() {
-	$('.write .list-bottom .background span').on('click', function() {
+	$('.write .list-bottom .color-content span').on('click', function() {
 		$(this).addClass('checked');
-		$('.write .list-bottom .background span').not(this).removeClass('checked');
+		$('.write .list-bottom .color-content span').not(this).removeClass('checked');
+
+		if ($(this).attr('data-bg') == "white") {
+			$('.result-choose-img figcaption p').addClass('white');
+		} else {
+			$('.result-choose-img figcaption p').removeClass('white');
+		}
 	})
 }
 
@@ -230,6 +236,7 @@ function showMenuMobile() {
 	});
 }
 
+// HIỆN KẾ QUẢ CHỌN THIỆP
 function showContent() {
 	var result = $('.write textarea').val();
 	$('.result figure figcaption p').html(result);
@@ -241,6 +248,7 @@ function showContent() {
 	});
 }
 
+// SUBMIT FORM
 function ajaxForm() {
 	$('.index-4 button').on('click', function() {
 		// CÁC TRƯỜNG INPUT
@@ -261,9 +269,9 @@ function ajaxForm() {
 				content: content
 			},
 			dataType: "JSON",
-			error: function(err) {
-				alert('Cảm ơn bạn đã đăng kí');
-			},
+			// error: function(err) {
+			// 	alert('Cảm ơn bạn đã đăng kí');
+			// },
 			success: function(res) {
 				alert(res.Message)
 			}
@@ -271,14 +279,41 @@ function ajaxForm() {
 	});
 }
 
+// CÁC BƯỚC NHẬP THIỆP
+function step_by_step() {
+
+	$('.step-2').hide();
+	$('.step-3').hide();
+
+	// BẤM NEXT QUA BƯỚC 2
+	$('.step-1 .button-next-step').on('click', function() {
+		$('.step-1').hide(500);
+		$('.step-2').show(500);
+	});
+
+	// BẤM NEXT QUA BƯỚC 3
+	$('.step-2 .button-next-step').on('click', function() {
+		$('.step-2').hide(500);
+		$('.step-3').show(500);
+	});
+
+	// TRỞ LẠI BƯỚC 1
+	$('.step-2 .button-prev-step').on('click', function() {
+		$('.step-2').hide(500);
+		$('.step-1').show(500);
+	});
+}
+
 // CHẠY KHI DOCUMENT SẴN SÀNG
 document.addEventListener('DOMContentLoaded', () => {
+	// WOW JS
+	new WOW().init();
 	// LOADING
 	loading();
 	// SVG CONTROL
 	SVG();
 	// FANCYBOX
-	fancyboxOninit();
+	// fancyboxOninit();
 	// MENU
 	scrollMenu();
 	clickGoTop();
@@ -299,6 +334,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	// SLIDER
 	sliderBigIMG();
 	sliderChooseCard();
+	// CÁC BƯỚC CHỌN THIỆP
+	step_by_step();
 });
 
 // CHẠY KHI WINDOWN SCROLL
