@@ -108,8 +108,9 @@ function fancyboxOninit() {
 function sliderBigIMG() {
 	var slideBigIMG = new Swiper('.index-3 .swiper-container', {
 		speed: 1000,
+		loop: true,
 		autoplay: {
-			delay: 10000,
+			delay: 3000,
 		},
 		// Navigation arrows
 		navigation: {
