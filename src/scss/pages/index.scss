@@ -2,15 +2,31 @@
 	img {
 		width: 100%;
 	}
+
+	.mobile {
+		display: none;
+	}
+
+	@media (max-width: 768px) {
+		.pc {
+			display: none;
+		}
+
+		.mobile {
+			display: block;
+		}
+	}
 }
 
 .index-2 {
-	background-image : url(../assets/images/background/bg-index-2.png);
-	background-size  : cover;
-	background-repeat: no-repeat;
-	width            : 100%;
-	height           : 1080px;
-	padding-top      : 35px;
+	position           : relative;
+	background-image   : url(../assets/images/background/bg-index-2.png);
+	background-position: center;
+	background-size    : cover;
+	background-repeat  : no-repeat;
+	width              : 100%;
+	height             : 1080px;
+	padding-top        : 35px;
 
 	.block-section {
 		position  : relative;
@@ -494,6 +510,13 @@
 		}
 	}
 
+	.number-step {
+		position : absolute;
+		left     : 50%;
+		transform: translateX(-50%);
+		bottom   : 25px;
+	}
+
 	@media (max-width: 1440px) {
 		.block-section {
 			width : 90%;
@@ -723,79 +746,21 @@
 }
 
 .index-3 {
-	.swiper-slide {
-		@media (max-width: 1024.98px) {
-			height : auto;
-			display: flex;
+	.block-item {
+		width : 100%;
+		height: auto;
 
-			.block-item-1 {
-				height: auto;
-				width : 100%;
-
-				.video {
-					flex     : 0 0 100%;
-					max-width: 100%;
-				}
-			}
-		}
-	}
-
-	.block-item-1 {
-		position         : relative;
-		background       : url(../assets/images/background/bg-index-3.png);
-		background-size  : cover;
-		background-repeat: no-repeat;
-		height           : 100vh;
-
-		figure {
-			position : absolute;
-			top      : 50%;
-			left     : 50%;
-			transform: translate(-50%, -50%);
-			z-index  : 2;
+		.mobile {
+			display: none;
 		}
 
-		@media (max-width: 1024.98px) {
-			figure {
-				width : 100%;
-				height: 100%;
-			}
-		}
-	}
-
-	.block-item-2 {
-		.home-banner {
-			height  : 100vh;
-			position: relative;
-
-			.item-banner {
-				position: absolute;
-				bottom  : 0;
-				left    : 85px;
-
-				@media (max-width: 1440px) {
-					img {
-						width: 80%;
-					}
-				}
-
-				@media (max-width: 1024.98px) {
-					left: 25px;
-
-					img {
-						width: 50%;
-					}
-				}
-
-				@media (max-width: 767.98px) {
-					img {
-						width: 45%;
-					}
-				}
+		@media (max-width: 768px) {
+			.pc {
+				display: none;
 			}
 
-			@media (max-width: 1024.98px) {
-				height: 100%;
+			.mobile {
+				display: block;
 			}
 		}
 	}

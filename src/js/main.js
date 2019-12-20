@@ -107,6 +107,7 @@ function fancyboxOninit() {
 
 function sliderBigIMG() {
 	var slideBigIMG = new Swiper('.index-3 .swiper-container', {
+		autoHeight: true, //enable auto height
 		speed: 1000,
 		loop: true,
 		autoplay: {
@@ -286,23 +287,32 @@ function step_by_step() {
 
 	$('.step-2').hide();
 	$('.step-3').hide();
+	$('.number-step-2').hide();
+	$('.number-step-3').hide();
+
 
 	// BẤM NEXT QUA BƯỚC 2
 	$('.step-1 .button-next-step').on('click', function() {
 		$('.step-1').hide(500);
 		$('.step-2').show(500);
+		$('.number-step-1').hide(500);
+		$('.number-step-2').show(500);
 	});
 
 	// BẤM NEXT QUA BƯỚC 3
 	$('.step-2 .button-next-step').on('click', function() {
 		$('.step-2').hide(500);
 		$('.step-3').show(500);
+		$('.number-step-2').hide(500);
+		$('.number-step-3').show(500);
 	});
 
 	// TRỞ LẠI BƯỚC 1
 	$('.step-2 .button-prev-step').on('click', function() {
 		$('.step-2').hide(500);
 		$('.step-1').show(500);
+		$('.number-step-2').hide(500);
+		$('.number-step-1').show(500);
 	});
 }
 
@@ -314,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// LOADING
 	loading().then(() => {
 		setTimeout(() => {
-			fancyboxOninit();
+			// fancyboxOninit();
 		}, 3000);
 		// FANCYBOX
 	});

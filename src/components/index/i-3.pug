@@ -2,15 +2,17 @@
 	.swiper-container
 		.swiper-wrapper
 			.swiper-slide
-				.block-item-1
-					a.fancyboxOninit(data-fancybox href="https://www.youtube.com/watch?v=9BUjXZ-zc9k")
-						figure
-							img.ofc(src="./assets/images/background/thumbnail-video.png", alt="")
+				.block-item
+					img.pc.ofc(src="./assets/images/background/item-slider-1.png", alt="", srcset="")
+					img.mobile.ofc(src="./assets/images/background/item-slider-1-mobile.png", alt="")
 			.swiper-slide
-				.block-item-2
-					.home-banner
-						img.ofc(src="./assets/images/background/item-slider.png", alt="", srcset="")
-						.item-banner
-							img(src="./assets/images/background/item-in-banner.png", alt="", srcset="")
+				.block-item
+					img.pc.ofc(src="./assets/images/background/item-slider-2.png", alt="")
+					img.mobile.ofc(src="./assets/images/background/item-slider-2-mobile.png", alt="")
+			.swiper-slide
+				.block-item
+					a.fancyboxOninit(data-fancybox href="https://www.youtube.com/watch?v=9BUjXZ-zc9k")
+						img.pc.ofc(src="./assets/images/background/item-slider-3.png", alt="")
+						img.mobile.ofc(src="./assets/images/background/item-slider-3-mobile.png", alt="")
 		.swiper-button-prev
 		.swiper-button-next
