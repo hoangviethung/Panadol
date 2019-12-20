@@ -102,7 +102,7 @@ const clickGoTop = () => {
 }
 
 function fancyboxOninit() {
-	$('#fancyboxOninit').trigger('click')
+	$('#fancyboxOninit').trigger('click');
 }
 
 function sliderBigIMG() {
@@ -204,6 +204,7 @@ function chooseContentDefault() {
 		textDefault = $(this).text();
 		// SET NỘI DUNG VÀO BOX WRITE
 		$('.write textarea').val(textDefault);
+		showContent();
 	});
 }
 
@@ -307,14 +308,18 @@ function step_by_step() {
 
 // CHẠY KHI DOCUMENT SẴN SÀNG
 document.addEventListener('DOMContentLoaded', () => {
+
 	// WOW JS
 	new WOW().init();
 	// LOADING
-	loading();
+	loading().then(() => {
+		setTimeout(() => {
+			fancyboxOninit();
+		}, 3000);
+		// FANCYBOX
+	});
 	// SVG CONTROL
 	SVG();
-	// FANCYBOX
-	// fancyboxOninit();
 	// MENU
 	scrollMenu();
 	clickGoTop();
