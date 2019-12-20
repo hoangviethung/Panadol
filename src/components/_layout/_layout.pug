@@ -28,18 +28,20 @@ html(lang="en")
 		.overlay
 		.d-none
 			.block-popup#send-mail
-				form(action="#" method="method")
-					.form-group
-						label Tới :
-						input.from(type="text")
-					.form-group
-						label Tiêu đề :
-						input.title-mail(type="text")
-					.form-group
-						label.textarea Nội dung :
-						textarea(name="", cols="30", rows="10")
-					.form-group
-						button gửi
+				.form-group
+					label Tới :
+					input.mail_to#formTo(type="text")
+				.form-group
+					label Tiêu đề :
+					input.title-mail#formTitle(type="text")
+				.form-group
+					label.textarea Nội dung :
+					textarea#formContent(name="", cols="30", rows="10")
+				.form-group
+					button(data-url="#") gửi
+		.d-none
+			.block-popup#thong-bao
+				h3
 		a.d-none#fancyboxOninit(data-fancybox href="https://www.youtube.com/watch?v=9BUjXZ-zc9k")
 		script(type="text/javascript", src="./js/core.min.js")
 		script(type="text/javascript", src="./js/main.min.js")

@@ -42,6 +42,11 @@ main {
 	border           : 2px solid #ffe618;
 	width            : 465px;
 
+	h3 {
+		text-align: center;
+		color     : #ffffff;
+	}
+
 	.form-group {
 		position     : relative;
 		margin-bottom: 10px;
@@ -54,7 +59,7 @@ main {
 			line-height  : 35px;
 			padding-right: 20px;
 
-			&.from {
+			&.mail_to {
 				padding-left: 55px;
 			}
 
@@ -69,7 +74,7 @@ main {
 			resize       : none;
 			border-radius: 17.5px;
 			padding-top  : 14px;
-			padding-left : 50px;
+			padding-left : 95px;
 			height       : 115px;
 			border       : 0;
 		}

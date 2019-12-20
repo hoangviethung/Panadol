@@ -265,12 +265,16 @@ function showContent() {
 
 // SUBMIT FORM
 function ajaxForm() {
-	$('.index-4 button').on('click', function() {
+	$('#send-mail button').on('click', function() {
 		// CÁC TRƯỜNG INPUT
-		const name = $('.index-4 #name').val();
-		const email = $('.index-4 #email').val();
-		const phone = $('.index-4 #phone').val();
-		const content = $('.index-4 #content').val();
+		const provider = 'test';
+		const name = $('.index-2 #name_send').val();
+		const phone = $('.index-2 #phone_send').val();
+		const email = $('.index-2 #email_send').val();
+		const img = 'test';
+		const formTo = $('#send-mail #formTo').val();
+		const formTitle = $('#send-mail #formTitle').val();
+		const formContent = $('#send-mail #formContent').val();
 		// URL GỬI DATA
 		const url = $(this).attr('data-url');
 		// AJAX GỬI DATA
@@ -278,17 +282,38 @@ function ajaxForm() {
 			type: "POST",
 			url: url,
 			data: {
+				provider: provider,
 				name: name,
 				emai: email,
 				phone: phone,
-				content: content
+				img: img,
+				formTo: formTo,
+				formTitle: formTitle,
+				formContent: formContent,
 			},
 			dataType: "JSON",
 			// error: function(err) {
-			// 	alert('Cảm ơn bạn đã đăng kí');
+			// 	$('#thong-bao h3').html('Đã gửi thiệp');
+			// 	$.fancybox.open({
+			// 		src: '#thong-bao',
+			// 		type: 'inline',
+			// 		opts: {
+			// 			hash: false,
+			// 			closeExisting: true,
+			// 		}
+			// 	})
+			// 	window.open("nhan-thiep.html", '_blank')
 			// },
 			success: function(res) {
-				alert(res.Message)
+				$('#thong-bao h3').html(res.Message);
+				$.fancybox.open({
+					src: '#thong-bao',
+					type: 'inline',
+					opts: {
+						hash: false,
+						closeExisting: true,
+					}
+				})
 			}
 		});
 	});
@@ -327,7 +352,6 @@ function step_by_step() {
 		$('.number-step-1').show(500);
 	});
 }
-
 
 // CHẠY KHI DOCUMENT SẴN SÀNG
 document.addEventListener('DOMContentLoaded', () => {

@@ -149,19 +149,19 @@
 									<div class="form-group">
 										<label>Tên:</label>
 										<div class="input-form">
-											<input type="text" placeholder="Nhập tên của bạn">
+											<input id="name_send" type="text" placeholder="Nhập tên của bạn">
 										</div>
 									</div>
 									<div class="form-group">
 										<label>SĐT:</label>
 										<div class="input-form">
-											<input type="text" placeholder="Nhập số điện thoại">
+											<input id="phone_send" type="text" placeholder="Nhập số điện thoại">
 										</div>
 									</div>
 									<div class="form-group">
 										<label>Email:</label>
 										<div class="input-form">
-											<input type="text" placeholder="Địa chỉ email">
+											<input id="email_send" type="text" placeholder="Địa chỉ email">
 										</div>
 									</div>
 									<div class="list-step">
@@ -218,47 +218,29 @@
 			</div>
 			<div id="js-page-verify" hidden></div>
 		</main>
-		<footer>
-			<div class="container">
-				<div class="social-media">
-					<ul>
-						<li><img src="./assets/images/icons/footer-share.svg" alt=""></li>
-						<li>
-							<div class="fb-share-button" data-href="http://web4gsolutions.com/" data-layout="button_count" data-size="small"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fweb4gsolutions.com%2F&amp;src=sdkpreparse"><img src="./assets/images/icons/footer-facebook.svg" alt="" srcset=""></a></div>
-						</li>
-						<li><img src="./assets/images/icons/footer-youtube.svg" alt="" srcset=""></li>
-					</ul>
-				</div>
-				<div class="text-footer">
-					<p>Trang này chỉ dành cho người dùng tại Việt Nam.</p>
-					<p>Panadol là nhãn hiệu sở hữu bởi hoặc cấp phép cho Tập đoàn GSK. © 2019,</p>
-					<p>Tập đoàn GSK hoặc bên cấp phép sử dụng nhãn hiệu. Tất cả các quyền được bảo lưu.</p>
-				</div>
-				<div class="copy-right">
-					<p>Copy right @ 2019  Tập đoàn GSK. All rights reserved.</p>
-				</div>
-			</div>
-		</footer>
 		<div class="overlay"></div>
 		<div class="d-none">
 			<div class="block-popup" id="send-mail">
-				<form action="#" method="method">
-					<div class="form-group">
-						<label>Tới :</label>
-						<input class="from" type="text">
-					</div>
-					<div class="form-group">
-						<label>Tiêu đề :</label>
-						<input class="title-mail" type="text">
-					</div>
-					<div class="form-group">
-						<label class="textarea">Nội dung :</label>
-						<textarea name="" cols="30" rows="10"></textarea>
-					</div>
-					<div class="form-group">
-						<button>gửi</button>
-					</div>
-				</form>
+				<div class="form-group">
+					<label>Tới :</label>
+					<input class="mail_to" id="formTo" type="text">
+				</div>
+				<div class="form-group">
+					<label>Tiêu đề :</label>
+					<input class="title-mail" id="formTitle" type="text">
+				</div>
+				<div class="form-group">
+					<label class="textarea">Nội dung :</label>
+					<textarea id="formContent" name="" cols="30" rows="10"></textarea>
+				</div>
+				<div class="form-group">
+					<button data-url="#">gửi</button>
+				</div>
+			</div>
+		</div>
+		<div class="d-none">
+			<div class="block-popup" id="thong-bao">
+				<h3></h3>
 			</div>
 		</div><a class="d-none" id="fancyboxOninit" data-fancybox href="https://www.youtube.com/watch?v=9BUjXZ-zc9k"></a>
 		<script type="text/javascript" src="./js/core.min.js"></script>
