@@ -1,11 +1,12 @@
 .nhan-thiep {
-	position         : relative;
-	background-image : url(../assets/images/background/bg-index-2.png);
-	background-size  : cover;
-	background-repeat: no-repeat;
-	height           : 100vh;
-	padding-top      : 50px;
-	overflow         : hidden;
+	position           : relative;
+	background-image   : url(../assets/images/background/bg-nhan-thiep.png);
+	background-size    : cover;
+	background-position: center;
+	background-repeat  : no-repeat;
+	height             : 100vh;
+	padding-top        : 50px;
+	overflow           : hidden;
 
 	.title {
 		width: 620px;

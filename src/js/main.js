@@ -141,7 +141,7 @@ function sliderChooseCard() {
 		observeParents: true,
 		simulateTouch: false,
 		slidesPerView: 4,
-		spaceBetween: 8,
+		spaceBetween: 10,
 		// Navigation arrows
 		navigation: {
 			nextEl: '.slider-choose-card .swiper-button-next',
@@ -150,6 +150,9 @@ function sliderChooseCard() {
 		breakpoints: {
 			768: {
 				slidesPerView: 5,
+			},
+			1024: {
+				slidesPerView: 6,
 			},
 		}
 	});
@@ -180,21 +183,6 @@ function scrollMenu() {
 	});
 }
 
-function chooseIMG() {
-	// CHỌN HÌNH MẶC ĐỊNH TỪ ĐẦU
-	var imgUrl = $('.choose-image .list-item .item').find('img').attr('src');
-	$('.result-choose-img figure img').attr('src', imgUrl);
-
-	$('.choose-image .list-item .item').on('click', function() {
-		// CHỌN HÌNH
-		$(this).addClass('checked');
-		$('.choose-image .list-item .item').not(this).removeClass('checked');
-		// ĐỔI HÌNH Ở BLOCK KẾT QUẢ
-		imgUrl = $(this).find('img').attr('src');
-		$('.result-choose-img figure img').attr('src', imgUrl);
-	})
-}
-
 function chooseCard() {
 	$('.slider-choose-card figure').on('click', function() {
 		$(this).addClass('checked');
@@ -221,15 +209,16 @@ function chooseContentDefault() {
 	});
 }
 
-function chooseBackground() {
+// CHỌN MÀY CHỮ
+function chooseColorContent() {
 	$('.write .list-bottom .color-content span').on('click', function() {
 		$(this).addClass('checked');
 		$('.write .list-bottom .color-content span').not(this).removeClass('checked');
 
 		if ($(this).attr('data-bg') == "white") {
-			$('.result-choose-img figcaption p').addClass('white');
+			$('.result-img figcaption p').addClass('red');
 		} else {
-			$('.result-choose-img figcaption p').removeClass('white');
+			$('.result-img figcaption p').removeClass('red');
 		}
 	})
 }
@@ -263,18 +252,22 @@ function showContent() {
 	});
 }
 
+function getDataProvider() {
+	$('.list-share-social-media .item').on('click', function() {
+		$(this).addClass('checked');
+		$('.list-share-social-media .item').not(this).removeClass('checked');
+	})
+}
+
 // SUBMIT FORM
 function ajaxForm() {
 	$('#send-mail button').on('click', function() {
 		// CÁC TRƯỜNG INPUT
-		const provider = 'test';
-		const name = $('.index-2 #name_send').val();
-		const phone = $('.index-2 #phone_send').val();
-		const email = $('.index-2 #email_send').val();
-		const img = 'test';
+		const provider = $('.list-share-social-media .item.checked').attr('data-provider');
 		const formTo = $('#send-mail #formTo').val();
 		const formTitle = $('#send-mail #formTitle').val();
 		const formContent = $('#send-mail #formContent').val();
+		const img = 'test';
 		// URL GỬI DATA
 		const url = $(this).attr('data-url');
 		// AJAX GỬI DATA
@@ -283,13 +276,10 @@ function ajaxForm() {
 			url: url,
 			data: {
 				provider: provider,
-				name: name,
-				emai: email,
-				phone: phone,
-				img: img,
 				formTo: formTo,
 				formTitle: formTitle,
 				formContent: formContent,
+				img: img,
 			},
 			dataType: "JSON",
 			// error: function(err) {
@@ -323,10 +313,7 @@ function ajaxForm() {
 function step_by_step() {
 
 	$('.step-2').hide();
-	$('.step-3').hide();
 	$('.number-step-2').hide();
-	$('.number-step-3').hide();
-
 
 	// BẤM NEXT QUA BƯỚC 2
 	$('.step-1 .button-next-step').on('click', function() {
@@ -334,22 +321,11 @@ function step_by_step() {
 		$('.step-2').show(500);
 		$('.number-step-1').hide(500);
 		$('.number-step-2').show(500);
-	});
-
-	// BẤM NEXT QUA BƯỚC 3
-	$('.step-2 .button-next-step').on('click', function() {
-		$('.step-2').hide(500);
-		$('.step-3').show(500);
-		$('.number-step-2').hide(500);
-		$('.number-step-3').show(500);
-	});
-
-	// TRỞ LẠI BƯỚC 1
-	$('.step-2 .button-prev-step').on('click', function() {
-		$('.step-2').hide(500);
-		$('.step-1').show(500);
-		$('.number-step-2').hide(500);
-		$('.number-step-1').show(500);
+		if ($('html').width() <= 768) {
+			$('html, body').animate({
+				scrollTop: $('#index-2').offset().top - 100
+			}, 1000);
+		}
 	});
 }
 
@@ -370,16 +346,16 @@ document.addEventListener('DOMContentLoaded', () => {
 	// MENU
 	scrollMenu();
 	clickGoTop();
-	// CHOOSE IMAGE
-	chooseIMG();
 	// CHOOSE CARD
 	chooseCard();
 	// CHỌN CÂU CHÚC MẶC ĐỊNH
 	chooseContentDefault();
-	// CHỌN MÀU CHO BACKGROUND
-	chooseBackground();
+	// CHỌN MÀU CHO CHỮ KẾ QUẢ
+	chooseColorContent();
 	// SHOW CONTENT
 	showContent();
+	// GET DATA PROVIDER
+	getDataProvider();
 	// AJAX FORM
 	ajaxForm();
 	// MENU MOBILE

@@ -17,56 +17,15 @@ header {
 		position   : relative;
 		align-self : center;
 		display    : inline-block;
-		flex       : 0 0 24px;
-		max-width  : 24px;
-		height     : 15px;
+		flex       : 0 0 90px;
+		max-width  : 90px;
+		height     : 90px;
 		display    : none;
 		margin-left: auto;
 
-		.line {
-			position     : absolute;
-			content      : '';
-			width        : 100%;
-			height       : 2px;
-			background   : #170051;
-			top          : 1px;
-			border-radius: 10px;
-
-			&:after,
-			&:before {
-				position     : absolute;
-				content      : '';
-				width        : 100%;
-				height       : 2px;
-				background   : #170051;
-				border-radius: 10px;
-			}
-
-			&:after {
-				top: 6px;
-			}
-
-			&:before {
-				top       : 12px;
-				transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-			}
-		}
-
-		&.active {
-			.line {
-				transform       : translate3d(0, 6px, 0) rotate(135deg);
-				transition      : transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-				transition-delay: 0.075s;
-
-				&:after {
-					opacity: 0;
-				}
-
-				&:before {
-					top      : -6px;
-					transform: translate3d(0, 6px, 0) rotate(90deg);
-				}
-			}
+		svg {
+			width : 100%;
+			height: 100%;
 		}
 	}
 
@@ -76,8 +35,8 @@ header {
 		margin-left: auto;
 
 		.nav-item {
-			position     : relative;
 			cursor       : pointer;
+			position     : relative;
 			padding-right: 40px;
 			margin-left  : 40px;
 
@@ -154,6 +113,8 @@ header {
 
 			&:last-child {
 				padding-right: 0;
+				padding-left : 40px;
+				margin-left  : 0;
 
 				.link {
 					&:after {
@@ -173,35 +134,17 @@ header {
 					font-size: 14px;
 				}
 
-				.form-group {
-					.input-form {
-						input {
-							line-height: 45px;
-						}
-
-						.icon {
-							top   : 43%;
-							width : 20px;
-							height: 20px;
-						}
-					}
-				}
-
-				.list-language {
-					.item {
-						font-size: 14px;
-					}
+				&:last-child {
+					padding-left: 20px;
 				}
 			}
 		}
 	}
 
 	@media (max-width: 1024.98px) {
-		padding: 30px 0;
-
-		.logo {
-			width: 80px;
-		}
+		background: transparent;
+		padding   : 30px 0;
+		box-shadow: none;
 
 		.button-mobile {
 			display: block;
@@ -211,7 +154,7 @@ header {
 			position      : absolute;
 			width         : 70%;
 			height        : 100vh;
-			top           : 75px;
+			top           : 0;
 			left          : -100%;
 			flex-direction: column;
 			padding-top   : 50px;
@@ -229,14 +172,6 @@ header {
 						content: none;
 					}
 				}
-
-				.form-group {
-					.input-form {
-						input {
-							width: 100%;
-						}
-					}
-				}
 			}
 
 			&.active {
@@ -248,36 +183,20 @@ header {
 	@media (max-width: 767.98px) {
 		padding: 15px 0;
 
+		.button-mobile {
+			flex     : 0 0 40px;
+			max-width: 40px;
+			height   : 40px;
+		}
+
 		.list-nav {
 			padding-top: 25px;
-			top        : 45px;
 
 			.nav-item {
 				margin-bottom: 25px;
 
 				.link {
 					font-size: 14px;
-				}
-
-				.form-group {
-					.input-form {
-						width : 80%;
-						margin: 0 auto;
-
-						input {
-							line-height: 40px;
-						}
-
-						.icon {
-							max-width: 20px;
-						}
-					}
-				}
-
-				.list-language {
-					.item {
-						font-size: 14px;
-					}
 				}
 			}
 		}

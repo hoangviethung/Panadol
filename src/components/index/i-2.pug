@@ -7,17 +7,7 @@
 			//- BƯỚC 1
 			.step-1
 				.row.list-task
-					.choose-image.col-lg-4
-						h3 chọn thiệp
-						.list-item
-							.item.checked
-								figure
-									img.ofc(src="./assets/images/item-choose-img/1.png", alt="", srcset="")
-							-for(i=2;i<7;i++)
-								.item
-									figure
-										img.ofc(src="./assets/images/item-choose-img/"+i+".png", alt="", srcset="")
-					.result.col-lg-4
+					.result.col-lg-8
 						h3 chọn bìa thiệp
 						.slider-choose-card
 							.swiper-container
@@ -31,15 +21,15 @@
 												img(src="./assets/images/item-choose-card/"+j+".png", alt="")
 							.swiper-button-prev
 							.swiper-button-next
-						.result-choose-img
+						.result-img
 							figure
 								.block-img
-									img.ofc(src="", alt="", srcset="")
+									img.ofc(src="./assets/images/background/bg-content.png", alt="", srcset="")
 								figcaption
 									p
 						.list-step
 							.button-next-step
-								span tiếp theo
+								span gửi thiệp
 								img(src="./assets/images/icons/arrow-next-step.svg", alt="", srcset="")
 					.block-write-content.col-lg-4
 						h3 chọn câu chúc
@@ -50,58 +40,33 @@
 									br
 									| Phát Tài, Phát Lộc, Phát Tình Duyên
 								.item Năm mới Tết đến – Rước hên vào nhà – Quà cáp bao la – Mọi nhà no đủ
-								.item Chúc mọi người vui vẻ như Chim Sẻ, khỏe mạnh như Đại Bàng, giàu sang như chim Phụng, làm lụng như chim Sâu, sống lâu như Đà Điểu
 								.item Năm Mới Cung Chúc: Sức Khỏe Dồi Dào, Vạn Sự Như Ý
 								.item  An Nhiên Hưởng Tết, Không Lo Nhức Đầu
 							.write
 								.form-group
-									textarea(maxlength="100")
+									textarea(maxlength="50")
 									.list-bottom
 										.color-content
 											span.checked
 											span(data-bg="white")
 										.count-characters
-											p Còn 
-												span 100 
+											p Tối đa 
+												span 50 
 												| ký tự
 			//- BƯỚC 2
 			.step-2
-				.title-step-2 thông tin của bạn
-				.block-form-step-2
-					form(action="#" method="method")
-						.form-group
-							label Tên:
-							.input-form
-								input#name_send(type="text" placeholder="Nhập tên của bạn")
-						.form-group
-							label SĐT:
-							.input-form
-								input#phone_send(type="text" placeholder="Nhập số điện thoại")
-						.form-group
-							label Email:
-							.input-form
-								input#email_send(type="text" placeholder="Địa chỉ email")
-						.list-step
-							.button-prev-step
-								img(src="./assets/images/icons/arrow-prev-step.svg", alt="", srcset="")
-								span trở lại
-							.button-next-step
-								span tiếp theo
-								img(src="./assets/images/icons/arrow-next-step.svg", alt="", srcset="")
-			//- BƯỚC 3
-			.step-3
-				.title-step-3 chia sẻ ngay
+				.title-step-2 chia sẻ ngay
 				.list-share-social-media
-					.item.facebook
+					.item.facebook(data-provider="facebook")
 						img.svg(src="./assets/images/icons/facebook.svg", alt="", srcset="")
 						h5 chia sẻ ngay
-					.item.messenger
+					.item.messenger(data-provider="messenger")
 						img.svg(src="./assets/images/icons/messenger.svg", alt="", srcset="")
 						h5 chia sẻ ngay
-					.item.zalo
+					.item.zalo(data-provider="zalo")
 						img(src="./assets/images/icons/zalo.png", alt="", srcset="")
 						h5 chia sẻ ngay
-					.item.mail(data-fancybox data-src="#send-mail")
+					.item.mail(data-provider="mail" data-fancybox data-src="#send-mail")
 						img.svg(src="./assets/images/icons/mail.svg", alt="", srcset="")
 						h5 chia sẻ ngay
 					.item.download
@@ -112,5 +77,3 @@
 				img(src="./assets/images/icons/step-1.png", alt="", srcset="")
 			.number-step-2
 				img(src="./assets/images/icons/step-2.png", alt="", srcset="")
-			.number-step-3
-				img(src="./assets/images/icons/step-3.png", alt="", srcset="")
