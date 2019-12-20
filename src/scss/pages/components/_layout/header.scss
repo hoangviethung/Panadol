@@ -103,6 +103,16 @@ header {
 					background: #7f7f7f;
 					transform : translateY(-50%);
 				}
+
+				&.active {
+					color     : #ffffff;
+					background: #e21932;
+				}
+
+				&:hover {
+					color     : #ffffff;
+					background: #e21932;
+				}
 			}
 
 			.form-group {
@@ -136,28 +146,6 @@ header {
 				}
 			}
 
-			.list-language {
-				display: flex;
-
-				.item {
-					color         : #dbdbdb;
-					text-transform: uppercase;
-					padding-right : 20px;
-					margin-right  : 20px;
-					border-right  : 1px solid #dedede;
-
-					&.active {
-						color: #434444;
-					}
-
-					&:last-child {
-						border-right : 0;
-						margin-right : 0;
-						padding-right: 0;
-					}
-				}
-			}
-
 			svg {
 				path {
 					fill: #7f7f7f;
@@ -166,12 +154,11 @@ header {
 
 			&:last-child {
 				padding-right: 0;
-			}
 
-			&:hover {
 				.link {
-					color     : #ffffff;
-					background: #e21932;
+					&:after {
+						content: none;
+					}
 				}
 			}
 		}

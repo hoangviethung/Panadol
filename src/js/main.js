@@ -161,10 +161,22 @@ function scrollMenu() {
 		$('.overlay').removeClass('active');
 		$('.list-nav').removeClass('active');
 		$('.button-mobile').removeClass('active');
+		$(this).addClass('active');
+		$('.list-nav .nav-item .link').not(this).removeClass('active')
 		let url = $(this).attr('data-href');
 		$('html, body').animate({
-			scrollTop: $(url).offset().top - 123 // Means Less header height
+			scrollTop: $(url).offset().top - 100
 		}, 1000);
+	});
+
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > ($('#index-2').offset().top) - 200) {
+			$('.link[data-href="#index-2"]').addClass('active');
+			$('.link[data-href="#index-1"]').removeClass('active');
+		} else {
+			$('.link[data-href="#index-1"]').addClass('active');
+			$('.link[data-href="#index-2"]').removeClass('active');
+		}
 	});
 }
 
@@ -316,6 +328,7 @@ function step_by_step() {
 	});
 }
 
+
 // CHẠY KHI DOCUMENT SẴN SÀNG
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -324,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// LOADING
 	loading().then(() => {
 		setTimeout(() => {
-			// fancyboxOninit();
+			fancyboxOninit();
 		}, 3000);
 		// FANCYBOX
 	});
@@ -353,6 +366,3 @@ document.addEventListener('DOMContentLoaded', () => {
 	// CÁC BƯỚC CHỌN THIỆP
 	step_by_step();
 });
-
-// CHẠY KHI WINDOWN SCROLL
-window.addEventListener('scroll', () => {})
