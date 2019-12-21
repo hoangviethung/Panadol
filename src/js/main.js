@@ -218,18 +218,18 @@ function ajaxForm() {
 				img: img,
 			},
 			dataType: "JSON",
-			// error: function(err) {
-			// 	$('#thong-bao h3').html('Đã gửi thiệp');
-			// 	$.fancybox.open({
-			// 		src: '#thong-bao',
-			// 		type: 'inline',
-			// 		opts: {
-			// 			hash: false,
-			// 			closeExisting: true,
-			// 		}
-			// 	})
-			// 	window.open("nhan-thiep.html", '_blank')
-			// },
+			error: function(err) {
+				$('#thong-bao h3').html('Đã gửi thiệp');
+				$.fancybox.open({
+					src: '#thong-bao',
+					type: 'inline',
+					opts: {
+						hash: false,
+						closeExisting: true,
+					}
+				})
+				window.open("nhan-thiep.html", '_blank')
+			},
 			success: function(res) {
 				$('#thong-bao h3').html(res.Message);
 				$.fancybox.open({

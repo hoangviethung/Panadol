@@ -40,4 +40,31 @@
 			}
 		}
 	}
+
+	@media (max-width: 1024.98px) {
+		background-position: left;
+	}
+
+	@media (max-width: 767.98px) {
+		.title {
+			width: 90%;
+
+			h2 {
+				font-size: 16px;
+			}
+		}
+
+		.action {
+			h2 {
+				font-size: 16px;
+			}
+		}
+
+		.block-nhan-thiep {
+			.card {
+				width : 40%;
+				height: 300px;
+			}
+		}
+	}
 }
