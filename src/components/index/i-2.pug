@@ -1,7 +1,7 @@
 .index-2#index-2
 	.container
 		.title
-			img.ofc(src="./assets/images/background/bg-title.png", alt="", srcset="")
+			img.ofc.lazyload(data-src="./assets/images/background/bg-title.png", alt="", srcset="")
 			h2 gửi thiệp tân xuân
 		.block-section
 			//- BƯỚC 1
@@ -14,23 +14,23 @@
 								.swiper-wrapper
 									.swiper-slide
 										figure.checked
-											img(src="./assets/images/item-choose-card/1.png", alt="")
+											img.lazyload(data-src="./assets/images/item-choose-card/1.png", alt="")
 									-for(j=2;j<10;j++)
 										.swiper-slide
 											figure
-												img(src="./assets/images/item-choose-card/"+j+".png", alt="")
+												img.lazyload(data-src="./assets/images/item-choose-card/"+j+".png", alt="")
 							.swiper-button-prev
 							.swiper-button-next
 						.result-img
 							figure#img-final
 								.block-img
-									img.ofc(src="./assets/images/background/bg-content.png", alt="", srcset="")
+									img.ofc.lazyload(data-src="./assets/images/background/bg-content.png", alt="", srcset="")
 								figcaption
 									p
 						.list-step
 							.button-next-step
 								span gửi thiệp
-								img(src="./assets/images/icons/arrow-next-step.svg", alt="", srcset="")
+								img.lazyload(data-src="./assets/images/icons/arrow-next-step.svg", alt="", srcset="")
 					.block-write-content.col-lg-4
 						h3 chọn câu chúc
 						.write-content
@@ -64,7 +64,7 @@
 						img.svg(src="./assets/images/icons/messenger.svg", alt="", srcset="")
 						h5 chia sẻ ngay
 					.item.zalo(data-provider="zalo")
-						img(src="./assets/images/icons/zalo.png", alt="", srcset="")
+						img.lazyload(data-src="./assets/images/icons/zalo.png", alt="", srcset="")
 						h5 chia sẻ ngay
 					.item.mail(data-provider="mail" data-fancybox data-src="#send-mail")
 						img.svg(src="./assets/images/icons/mail.svg", alt="", srcset="")
@@ -74,6 +74,6 @@
 						h5 tải về máy
 		.number-step
 			.number-step-1
-				img(src="./assets/images/icons/step-1.png", alt="", srcset="")
+				img.lazyload(data-src="./assets/images/icons/step-1.png", alt="", srcset="")
 			.number-step-2
-				img(src="./assets/images/icons/step-2.png", alt="", srcset="")
+				img.lazyload(data-src="./assets/images/icons/step-2.png", alt="", srcset="")
