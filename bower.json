@@ -17,6 +17,7 @@
     "jquery": "3.4.1",
     "fancybox": "@fancyapps/fancybox#^3.5.7",
     "swiper": "^5.2.1",
-    "wow": "wowjs#^1.1.2"
+    "wow": "wowjs#^1.1.2",
+    "html2canvas": "^0.4.1"
   }
 }

@@ -1,57 +1,6 @@
 // import here !!!
 import loading from './lib/loading';
-import mapping from "./lib/mapping";
-
-// Script Cho Tab
-class Tab {
-	selector;
-	titleList;
-	contentList;
-
-	constructor(selector) {
-		this.selector = document.querySelector(selector);
-		if (this.selector) {
-			this.titleList = this.selector.querySelectorAll("[toggle-for]")
-			this.contentList = this.selector.querySelectorAll("[tab-id]")
-			this.init();
-		}
-	}
-
-	runTabWhenClicked() {
-		Array.prototype.forEach.call(this.titleList, (element, index) => {
-			element.addEventListener("click", e => {
-				e.preventDefault();
-				const tabTarget = element.attributes["toggle-for"].value;
-				const targetDOM = this.selector.querySelector(`[tab-id='${tabTarget}']`);
-				element.classList.add("active");
-				Array.prototype.forEach.call(this.titleList, (eleClicked, eleClickedIndex) => {
-					if (eleClickedIndex != index) {
-						eleClicked.classList.remove("active")
-					}
-				});
-				Array.prototype.forEach.call(this.contentList, (tabContentElement) => {
-					if (tabContentElement.attributes["tab-id"].value != tabTarget) {
-						tabContentElement.style.display = "none"
-						tabContentElement.classList.remove("show")
-					}
-				});
-				targetDOM.style.display = "block",
-					setTimeout(() => {
-						targetDOM.classList.add("show")
-					}, 50);
-			})
-		})
-	}
-
-	activeFirstTab() {
-		this.titleList[0].click();
-	}
-
-	init() {
-		this.runTabWhenClicked();
-		this.activeFirstTab();
-	}
-}
+import html2canvas from "html2canvas";
 
 // CONTROL SVG
 function SVG() {
@@ -117,20 +66,7 @@ function sliderBigIMG() {
 		navigation: {
 			nextEl: '.index-3 .swiper-button-next',
 			prevEl: '.index-3 .swiper-button-prev',
-		},
-		// on: {
-		// 	slideChangeTransitionEnd: function() {
-		// 		// VDIEO CHẠY
-		// 		const video = document.querySelector('.index-3 .swiper-container .swiper-slide-active video');
-		// 		// VIDEO DỪNG
-		// 		const pause_video = document.querySelector('.index-3 .swiper-container .swiper-slide video');
-		// 		if (video) {
-		// 			video.play();
-		// 		} else {
-		// 			pause_video.pause();
-		// 		}
-		// 	}
-		// }
+		}
 	});
 }
 
@@ -329,6 +265,23 @@ function step_by_step() {
 	});
 }
 
+// XUẤT HÌNH
+function getIMG() {
+	$('.step-2 .item.download').one('click', function(e) {
+		console.log('clicked');
+
+		html2canvas(document.querySelector("#img-final"), {
+			width: 440,
+			height: 440,
+			backgroundColor: 'transparent'
+		}).then(canvas => {
+			document.querySelector(".result-img").appendChild(canvas)
+			console.log(canvas);
+
+		});
+	});
+}
+
 // CHẠY KHI DOCUMENT SẴN SÀNG
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -365,4 +318,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	sliderChooseCard();
 	// CÁC BƯỚC CHỌN THIỆP
 	step_by_step();
+	// XUẤT HÌNH
+	getIMG();
 });
