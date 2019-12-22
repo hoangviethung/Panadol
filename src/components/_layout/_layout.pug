@@ -26,6 +26,7 @@ html(lang="en")
 		block footer
 			include _footer.pug
 		.overlay
+		// BLOCK SEND MAIL
 		.d-none
 			.block-popup#send-mail
 				.form-group
@@ -41,12 +42,16 @@ html(lang="en")
 					button(data-url="#") gửi
 				.close-button(data-fancybox-close)
 					img(src="./assets/images/icons/close.svg", alt="", srcset="")
+		// POPUP THÔNG BÁO
 		.d-none
 			.block-popup#thong-bao
 				h3
 				.close-button(data-fancybox-close)
 					img(src="./assets/images/icons/close.svg", alt="", srcset="")
+		// POPUP VIDEO QUẢNG CÁO
 		a.d-none#fancyboxOninit(data-fancybox href="https://www.youtube.com/watch?v=9BUjXZ-zc9k")
+		// LINK BASE 64
+		a.d-none#download-hidden(href="#" download="happy-new-year.png")
 		script(type="text/javascript", src="./js/core.min.js")
 		script(type="text/javascript", src="./js/main.min.js")
 		block scripts

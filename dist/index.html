@@ -130,10 +130,10 @@
 								<div class="item zalo" data-provider="zalo"><img class="lazyload" data-src="./assets/images/icons/zalo.png" alt="" srcset="">
 									<h5>chia sẻ ngay</h5>
 								</div>
-								<div class="item mail" data-provider="mail" data-fancybox data-src="#send-mail"><img class="svg" src="./assets/images/icons/mail.svg" alt="" srcset="">
+								<div class="item mail" data-method="sendMail" data-provider="mail" data-fancybox data-src="#send-mail"><img class="svg" src="./assets/images/icons/mail.svg" alt="" srcset="">
 									<h5>chia sẻ ngay</h5>
 								</div>
-								<div class="item download"><img class="svg" src="./assets/images/icons/download.svg" alt="" srcset="">
+								<div class="item download" data-method="download"><img class="svg" src="./assets/images/icons/download.svg" alt="" srcset="">
 									<h5>tải về máy</h5>
 								</div>
 							</div>
@@ -165,6 +165,7 @@
 			<div id="js-page-verify" hidden></div>
 		</main>
 		<div class="overlay"></div>
+		<!-- BLOCK SEND MAIL-->
 		<div class="d-none">
 			<div class="block-popup" id="send-mail">
 				<div class="form-group">
@@ -185,12 +186,15 @@
 				<div class="close-button" data-fancybox-close><img src="./assets/images/icons/close.svg" alt="" srcset=""></div>
 			</div>
 		</div>
+		<!-- POPUP THÔNG BÁO-->
 		<div class="d-none">
 			<div class="block-popup" id="thong-bao">
 				<h3></h3>
 				<div class="close-button" data-fancybox-close><img src="./assets/images/icons/close.svg" alt="" srcset=""></div>
 			</div>
-		</div><a class="d-none" id="fancyboxOninit" data-fancybox href="https://www.youtube.com/watch?v=9BUjXZ-zc9k"></a>
+		</div>
+		<!-- POPUP VIDEO QUẢNG CÁO--><a class="d-none" id="fancyboxOninit" data-fancybox href="https://www.youtube.com/watch?v=9BUjXZ-zc9k"></a>
+		<!-- LINK BASE 64--><a class="d-none" id="download-hidden" href="#" download="happy-new-year.png"></a>
 		<script type="text/javascript" src="./js/core.min.js"></script>
 		<script type="text/javascript" src="./js/main.min.js"></script>
 	</body>

@@ -66,10 +66,10 @@
 					.item.zalo(data-provider="zalo")
 						img.lazyload(data-src="./assets/images/icons/zalo.png", alt="", srcset="")
 						h5 chia sẻ ngay
-					.item.mail(data-provider="mail" data-fancybox data-src="#send-mail")
+					.item.mail(data-method="sendMail" data-provider="mail" data-fancybox data-src="#send-mail")
 						img.svg(src="./assets/images/icons/mail.svg", alt="", srcset="")
 						h5 chia sẻ ngay
-					.item.download
+					.item.download(data-method="download")
 						img.svg(src="./assets/images/icons/download.svg", alt="", srcset="")
 						h5 tải về máy
 		.number-step

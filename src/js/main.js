@@ -191,15 +191,15 @@ function getDataProvider() {
 	})
 }
 
-// SUBMIT FORM
-function ajaxForm() {
+// SUBMIT FORM SEND MAIL
+function ajaxFormSendMail() {
 	$('#send-mail button').on('click', function() {
 		// CÁC TRƯỜNG INPUT
 		const provider = $('.list-share-social-media .item.checked').attr('data-provider');
 		const formTo = $('#send-mail #formTo').val();
 		const formTitle = $('#send-mail #formTitle').val();
 		const formContent = $('#send-mail #formContent').val();
-		const img = 'test';
+		const img = 'ImageURL';
 		// URL GỬI DATA
 		const url = $(this).attr('data-url');
 		// AJAX GỬI DATA
@@ -262,20 +262,34 @@ function step_by_step() {
 }
 
 // XUẤT HÌNH
-function getIMG() {
-	$('.step-2 .item.download').one('click', function(e) {
-		console.log('clicked');
+function exportPicture() {
+	$('.step-1 .button-next-step').one('click', function(e) {
+		const result = new Promise((resolve) => {
+			html2canvas(document.querySelector("#img-final"), {
+				width: 600,
+				height: 600,
+			}).then((canvas) => {
+				setTimeout(() => {
+					let imgBase64 = canvas.toDataURL("image/png")
+					resolve(imgBase64)
+				}, 500);
+			})
+		})
 
-		html2canvas(document.querySelector("#img-final"), {
-			width: 440,
-			height: 440,
-			backgroundColor: 'transparent'
-		}).then(canvas => {
-			document.querySelector(".result-img").appendChild(canvas)
-			console.log(canvas);
-
-		});
+		result.then(imageCanvas => {
+			const ImageURL = imageCanvas;
+			document.querySelector("#download-hidden").setAttribute("href", ImageURL)
+		})
 	});
+}
+
+// HÌNH THỨC XUẤT HÌNH
+function method_ExportPicture(params) {
+	if (params == "sendMail") {
+		ajaxFormSendMail();
+	} else if (params = "download") {
+		document.querySelector("#download-hidden").click();
+	}
 }
 
 // CHẠY KHI DOCUMENT SẴN SÀNG
@@ -287,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	loading().then(() => {
 		// FANCYBOX
 		setTimeout(() => {
-			// $('#fancyboxOninit').trigger('click');
+			$('#fancyboxOninit').trigger('click');
 		}, 3000);
 	});
 	// SVG CONTROL
@@ -305,8 +319,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	showContent();
 	// GET DATA PROVIDER
 	getDataProvider();
-	// AJAX FORM
-	ajaxForm();
 	// MENU MOBILE
 	showMenuMobile();
 	// SLIDER
@@ -315,5 +327,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	// CÁC BƯỚC CHỌN THIỆP
 	step_by_step();
 	// XUẤT HÌNH
-	getIMG();
+	exportPicture();
+	// HÌNH THỨC XUẤT HÌNH
+	$(".list-share-social-media .item").on("click", function() {
+		let method = $(this).attr("data-method");
+		method_ExportPicture(method)
+	})
 });
