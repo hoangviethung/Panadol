@@ -50,10 +50,6 @@ const clickGoTop = () => {
 	}
 }
 
-function fancyboxOninit() {
-	$('#fancyboxOninit').trigger('click');
-}
-
 function sliderBigIMG() {
 	var slideBigIMG = new Swiper('.index-3 .swiper-container', {
 		autoHeight: true, //enable auto height
@@ -289,10 +285,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	new WOW().init();
 	// LOADING
 	loading().then(() => {
-		setTimeout(() => {
-			fancyboxOninit();
-		}, 3000);
 		// FANCYBOX
+		setTimeout(() => {
+			// $('#fancyboxOninit').trigger('click');
+		}, 3000);
 	});
 	// SVG CONTROL
 	SVG();
