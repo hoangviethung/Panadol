@@ -1,5 +1,5 @@
 .index-1 {
-	img {
+	video {
 		width: 100%;
 	}
 
@@ -54,7 +54,7 @@
 
 		.list-task {
 			h3 {
-				font-size     : 18px;
+				font-size     : 26px;
 				color         : #ffffff;
 				text-align    : center;
 				text-transform: uppercase;
@@ -63,66 +63,13 @@
 
 			.result {
 				user-select  : none;
-				padding-right: 180px;
-
-				.slider-choose-card {
-					position     : relative;
-					margin-bottom: 10px;
-					padding      : 0 35px;
-
-					figure {
-						cursor       : pointer;
-						position     : relative;
-						background   : #e11931;
-						border-radius: 3px;
-						overflow     : hidden;
-						border       : 2px solid transparent;
-						height       : 75px;
-
-						img {
-							position : absolute;
-							width    : 70%;
-							top      : 50%;
-							left     : 50%;
-							transform: translate(-50%, -50%);
-						}
-
-						&.checked {
-							border: 2px solid #ffe618;
-						}
-					}
-
-					.swiper-button-prev {
-						left: 0;
-
-						&:after {
-							content          : '';
-							background-image : url(../assets/images/icons/prev-choose-img.svg);
-							background-repeat: no-repeat;
-							background-size  : cover;
-							width            : 25px;
-							height           : 25px;
-						}
-					}
-
-					.swiper-button-next {
-						right: 0;
-
-						&:after {
-							content          : '';
-							background-image : url(../assets/images/icons/next-choose-img.svg);
-							background-repeat: no-repeat;
-							background-size  : cover;
-							width            : 25px;
-							height           : 25px;
-						}
-					}
-				}
+				margin-top   : 65px;
+				padding-right: 235px;
 
 				.result-img {
+					width : 530px;
+					height: 530px;
 					margin: 0 auto 30px;
-					width : 440px;
-					height: 440px;
 
 					figure {
 						position: relative;
@@ -158,11 +105,6 @@
 
 			.block-write-content {
 				.write-content {
-					background   : #ffffff;
-					padding      : 45px 25px;
-					border-radius: 3px;
-					border       : 3px solid #ffe618;
-
 					.choose-to-write {
 						background   : #faffa9;
 						padding      : 15px;
@@ -293,9 +235,15 @@
 
 	.step-2 {
 		position : absolute;
-		top      : 50%;
+		width    : 385px;
 		left     : 50%;
-		transform: translate(-50%, -50%);
+		transform: translateX(-50%);
+
+		figure {
+			width : 325px;
+			height: 325px;
+			margin: 0 auto 15px;
+		}
 
 		.title-step-2 {
 			text-align    : center;
@@ -306,10 +254,14 @@
 		}
 
 		.list-share-social-media {
-			width : 165px;
-			margin: 0 auto;
+			display        : flex;
+			flex-wrap      : wrap;
+			justify-content: space-between;
 
 			.item {
+				flex     : 0 0 165px;
+				max-width: 165px;
+
 				cursor       : pointer;
 				display      : flex;
 				align-items  : center;
@@ -403,6 +355,7 @@
 
 				&.download {
 					background: #e11931;
+					margin    : 0 auto 15px;
 				}
 
 				&.mail,
@@ -424,6 +377,12 @@
 					}
 				}
 			}
+		}
+
+		.list-step {
+			margin-top     : 35px;
+			display        : flex;
+			justify-content: center;
 		}
 	}
 
@@ -470,15 +429,8 @@
 				}
 
 				.result {
-					order: 2;
-
-					.slider-choose-card {
-						margin-top: 25px;
-
-						figure {
-							height: 100px;
-						}
-					}
+					order     : 2;
+					margin-top: 0;
 
 					.result-img {
 						margin: 0 auto 25px;
@@ -491,11 +443,9 @@
 
 				.block-write-content {
 					orphans      : 1;
-					margin-bottom: 30px;
+					margin-bottom: 15px;
 
 					.write-content {
-						padding: 15px;
-
 						.choose-to-write {
 							max-height   : 155px;
 							margin-bottom: 15px;
@@ -518,6 +468,15 @@
 			left     : unset;
 			transform: none;
 			width    : 100%;
+
+			.list-share-social-media {
+
+				.item {
+					&.download {
+						margin: 0 0 15px 0;
+					}
+				}
+			}
 		}
 
 		.number-step {
@@ -550,7 +509,8 @@
 		.step-1 {
 			.list-task {
 				h3 {
-					font-size: 18px;
+					font-size    : 18px;
+					margin-bottom: 15px;
 				}
 
 				.result {
@@ -592,23 +552,18 @@
 			margin: 25px 0;
 
 			.title-step-2 {
-				font-size: 18px;
+				font-size    : 18px;
+				margin-bottom: 15px;
 			}
 
-			.block-form-step-2 {
-				width: unset;
+			.list-share-social-media {
+				display: block;
 
-				.form-group {
-					label {
-						font-size: 14px;
-					}
+				.item {
+					margin: 0 auto 15px;
 
-					.input-form {
-						input {
-							font-size  : 13px;
-							line-height: 30px;
-							padding    : 0 15px;
-						}
+					&.download {
+						margin: 0 auto 15px;
 					}
 				}
 			}

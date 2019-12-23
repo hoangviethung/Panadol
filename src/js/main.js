@@ -257,6 +257,12 @@ function exportPicture() {
 			document.querySelector("#download-hidden").setAttribute("href", ImageURL);
 		})
 	});
+	$('.step-2 .button-prev-step').on('click', function() {
+		$('.step-2').hide(500);
+		$('.step-1').show(500);
+		$('.number-step-2').hide(500);
+		$('.number-step-1').show(500);
+	})
 }
 
 // HÌNH THỨC XUẤT HÌNH
@@ -363,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	loading().then(() => {
 		// FANCYBOX
 		setTimeout(() => {
-			$('#fancyboxOninit').trigger('click');
+			// $('#fancyboxOninit').trigger('click');
 		}, 3000);
 	});
 	// SVG CONTROL
