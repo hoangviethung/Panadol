@@ -24,7 +24,7 @@
 						.result-img
 							figure#img-final
 								.block-img
-									img.ofc.lazyload(data-src="./assets/images/background/bg-content.png", alt="", srcset="")
+									img.ofc(src="./assets/images/background/bg-content.png", alt="", srcset="")
 								figcaption
 									p
 						.list-step
@@ -66,10 +66,10 @@
 					.item.zalo(data-provider="zalo")
 						img.lazyload(data-src="./assets/images/icons/zalo.png", alt="", srcset="")
 						h5 chia sẻ ngay
-					.item.mail(data-method="sendMail" data-provider="mail" data-fancybox data-src="#send-mail")
+					.item.mail(data-provider="sendMail" data-fancybox data-src="#send-mail")
 						img.svg(src="./assets/images/icons/mail.svg", alt="", srcset="")
 						h5 chia sẻ ngay
-					.item.download(data-method="download")
+					.item.download(data-provider="download")
 						img.svg(src="./assets/images/icons/download.svg", alt="", srcset="")
 						h5 tải về máy
 		.number-step

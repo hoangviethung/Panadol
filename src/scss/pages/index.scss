@@ -120,16 +120,14 @@
 				}
 
 				.result-img {
-					padding      : 0 45px;
-					margin-bottom: 30px;
+					margin: 0 auto 30px;
+					width : 440px;
+					height: 440px;
 
 					figure {
 						position: relative;
 
 						.block-img {
-							margin       : 0 auto;
-							width        : 440px;
-							height       : 440px;
 							overflow     : hidden;
 							border-radius: 3px;
 						}
@@ -483,9 +481,7 @@
 					}
 
 					.result-img {
-						margin       : 0 auto;
-						padding      : 0;
-						margin-bottom: 25px;
+						margin: 0 auto 25px;
 					}
 
 					.list-step {
@@ -566,12 +562,8 @@
 					}
 
 					.result-img {
-						figure {
-							.block-img {
-								width : 100%;
-								height: auto;
-							}
-						}
+						width : 100%;
+						height: auto;
 					}
 
 					.list-step {

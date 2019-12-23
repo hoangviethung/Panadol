@@ -191,29 +191,123 @@ function getDataProvider() {
 	})
 }
 
+function b64toBlob(b64Data, contentType, sliceSize) {
+	contentType = contentType || '';
+	sliceSize = sliceSize || 512;
+
+	var byteCharacters = atob(b64Data);
+	var byteArrays = [];
+
+	for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+		var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+		var byteNumbers = new Array(slice.length);
+		for (var i = 0; i < slice.length; i++) {
+			byteNumbers[i] = slice.charCodeAt(i);
+		}
+
+		var byteArray = new Uint8Array(byteNumbers);
+
+		byteArrays.push(byteArray);
+	}
+
+	var blob = new Blob(byteArrays, {
+		type: contentType,
+	});
+	return blob;
+}
+
+// XUẤT HÌNH
+function exportPicture() {
+
+	$('.step-2').hide();
+	$('.number-step-2').hide();
+	$('.step-1 .button-next-step').on('click', function(e) {
+		const result = new Promise((resolve) => {
+			let widthX = $('#img-final').width();
+			let heightX = $('#img-final').height();
+			let widthY = $(window).width();
+			let heightY = $(window).height();
+			let offsetTop = $('#img-final').offset().top;
+			let offsetLeft = $('#img-final').offset().left;
+			html2canvas(document.querySelector("#img-final"), {
+				windowWidth: widthY,
+				windowHeight: heightY,
+				width: widthX,
+				heihgt: heightX,
+				x: offsetLeft,
+				y: offsetTop
+
+			}).then((canvas) => {
+				let imgBase64 = canvas.toDataURL("image/png");
+				$('.step-1').hide(500);
+				$('.step-2').show(500);
+				$('.number-step-1').hide(500);
+				$('.number-step-2').show(500);
+				if ($('html').width() <= 768) {
+					$('html, body').animate({
+						scrollTop: $('#index-2').offset().top - 100
+					}, 1000);
+				}
+				resolve(imgBase64);
+			})
+		})
+
+		result.then(imageCanvas => {
+			const ImageURL = imageCanvas;
+			document.querySelector("#download-hidden").setAttribute("href", ImageURL);
+		})
+	});
+}
+
+// HÌNH THỨC XUẤT HÌNH
+function method_ExportPicture(params) {
+	if (params === "sendMail") {
+		ajaxFormSendMail();
+	} else if (params === "facebook") {
+		var fullUrl = "https://www.facebook.com/sharer/sharer.php?u=" + window.location.protocol + "//" + window.location.host
+		$(".item.facebook").append(`<a href=${fullUrl} target="_blank"></a>`)
+		window.open(fullUrl)
+	} else if (params === "download") {
+		document.querySelector("#download-hidden").click();
+	}
+}
+
 // SUBMIT FORM SEND MAIL
 function ajaxFormSendMail() {
 	$('#send-mail button').on('click', function() {
 		// CÁC TRƯỜNG INPUT
 		const provider = $('.list-share-social-media .item.checked').attr('data-provider');
+
 		const formTo = $('#send-mail #formTo').val();
 		const formTitle = $('#send-mail #formTitle').val();
 		const formContent = $('#send-mail #formContent').val();
-		const img = 'ImageURL';
+
+		const ImageURL = $('#download-hidden').attr('href');
+		const block = ImageURL.split(";");
+		// Get the content type
+		const contentType = block[0].split(":")[1];
+		const realData = block[1].split(",")[1];
+
+		const blob = b64toBlob(realData, contentType);
+		const img = blob;
 		// URL GỬI DATA
 		const url = $(this).attr('data-url');
 		// AJAX GỬI DATA
+		let formData = new FormData();
+		formData.append('provider', provider);
+		formData.append('formTo', formTo);
+		formData.append('formTitle', formTitle, );
+		formData.append('formContent', formContent, );
+		formData.append('img', img);
+
+
 		$.ajax({
-			type: "POST",
+			method: "POST",
 			url: url,
-			data: {
-				provider: provider,
-				formTo: formTo,
-				formTitle: formTitle,
-				formContent: formContent,
-				img: img,
-			},
-			dataType: "JSON",
+			data: formData,
+			processData: false,
+			contentType: false,
 			// error: function(err) {
 			// 	$('#thong-bao h3').html('Đã gửi thiệp');
 			// 	$.fancybox.open({
@@ -239,57 +333,6 @@ function ajaxFormSendMail() {
 			}
 		});
 	});
-}
-
-// CÁC BƯỚC NHẬP THIỆP
-function step_by_step() {
-
-	$('.step-2').hide();
-	$('.number-step-2').hide();
-
-	// BẤM NEXT QUA BƯỚC 2
-	$('.step-1 .button-next-step').on('click', function() {
-		$('.step-1').hide(500);
-		$('.step-2').show(500);
-		$('.number-step-1').hide(500);
-		$('.number-step-2').show(500);
-		if ($('html').width() <= 768) {
-			$('html, body').animate({
-				scrollTop: $('#index-2').offset().top - 100
-			}, 1000);
-		}
-	});
-}
-
-// XUẤT HÌNH
-function exportPicture() {
-	$('.step-1 .button-next-step').one('click', function(e) {
-		const result = new Promise((resolve) => {
-			html2canvas(document.querySelector("#img-final"), {
-				width: 600,
-				height: 600,
-			}).then((canvas) => {
-				setTimeout(() => {
-					let imgBase64 = canvas.toDataURL("image/png")
-					resolve(imgBase64)
-				}, 500);
-			})
-		})
-
-		result.then(imageCanvas => {
-			const ImageURL = imageCanvas;
-			document.querySelector("#download-hidden").setAttribute("href", ImageURL)
-		})
-	});
-}
-
-// HÌNH THỨC XUẤT HÌNH
-function method_ExportPicture(params) {
-	if (params == "sendMail") {
-		ajaxFormSendMail();
-	} else if (params = "download") {
-		document.querySelector("#download-hidden").click();
-	}
 }
 
 // CHẠY KHI DOCUMENT SẴN SÀNG
@@ -325,12 +368,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	sliderBigIMG();
 	sliderChooseCard();
 	// CÁC BƯỚC CHỌN THIỆP
-	step_by_step();
+	// step_by_step();
 	// XUẤT HÌNH
 	exportPicture();
 	// HÌNH THỨC XUẤT HÌNH
 	$(".list-share-social-media .item").on("click", function() {
-		let method = $(this).attr("data-method");
+		let method = $(this).attr("data-provider");
 		method_ExportPicture(method)
 	})
 });
