@@ -66,30 +66,6 @@ function sliderBigIMG() {
 	});
 }
 
-function sliderChooseCard() {
-	// SLIDE CHỌN CARD
-	var slideChooseCard = new Swiper('.slider-choose-card .swiper-container', {
-		observer: true,
-		observeParents: true,
-		simulateTouch: false,
-		slidesPerView: 4,
-		spaceBetween: 10,
-		// Navigation arrows
-		navigation: {
-			nextEl: '.slider-choose-card .swiper-button-next',
-			prevEl: '.slider-choose-card .swiper-button-prev',
-		},
-		breakpoints: {
-			768: {
-				slidesPerView: 5,
-			},
-			1024: {
-				slidesPerView: 6,
-			},
-		}
-	});
-}
-
 function scrollMenu() {
 	$('.list-nav .nav-item .link').on('click', function() {
 		$('body').removeClass('disabled');
@@ -113,13 +89,6 @@ function scrollMenu() {
 			$('.link[data-href="#index-2"]').removeClass('active');
 		}
 	});
-}
-
-function chooseCard() {
-	$('.slider-choose-card figure').on('click', function() {
-		$(this).addClass('checked');
-		$('.slider-choose-card .swiper-slide figure').not(this).removeClass('checked');
-	})
 }
 
 function chooseContentDefault() {
@@ -369,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	loading().then(() => {
 		// FANCYBOX
 		setTimeout(() => {
-			// $('#fancyboxOninit').trigger('click');
+			$('#fancyboxOninit').trigger('click');
 		}, 3000);
 	});
 	// SVG CONTROL
@@ -377,8 +346,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	// MENU
 	scrollMenu();
 	clickGoTop();
-	// CHOOSE CARD
-	chooseCard();
 	// CHỌN CÂU CHÚC MẶC ĐỊNH
 	chooseContentDefault();
 	// CHỌN MÀU CHO CHỮ KẾ QUẢ
@@ -391,9 +358,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	showMenuMobile();
 	// SLIDER
 	sliderBigIMG();
-	sliderChooseCard();
-	// CÁC BƯỚC CHỌN THIỆP
-	// step_by_step();
 	// XUẤT HÌNH
 	exportPicture();
 	// HÌNH THỨC XUẤT HÌNH
