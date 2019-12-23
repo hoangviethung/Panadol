@@ -179,7 +179,6 @@ function showContent() {
 
 	$('.write textarea').on('keyup', function() {
 		result = $(this).val();
-		console.log(result);
 		$('.result figure figcaption p').html(result);
 	});
 }
@@ -301,9 +300,8 @@ function ajaxFormSendMail() {
 		formData.append('formContent', formContent, );
 		formData.append('img', img);
 
-
 		$.ajax({
-			method: "POST",
+			type: "POST",
 			url: url,
 			data: formData,
 			processData: false,
@@ -321,15 +319,17 @@ function ajaxFormSendMail() {
 			// 	window.open("nhan-thiep.html", '_blank')
 			// },
 			success: function(res) {
-				$('#thong-bao h3').html(res.Message);
-				$.fancybox.open({
-					src: '#thong-bao',
-					type: 'inline',
-					opts: {
-						hash: false,
-						closeExisting: true,
-					}
-				})
+				if (res.Code === 200) {
+					$('#thong-bao h3').html(res.Message);
+					$.fancybox.open({
+						src: '#thong-bao',
+						type: 'inline',
+						opts: {
+							hash: false,
+							closeExisting: true,
+						}
+					})
+				}
 			}
 		});
 	});
