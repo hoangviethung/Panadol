@@ -335,6 +335,15 @@ function ajaxFormSendMail() {
 	});
 }
 
+function openCard() {
+	$('.block-img-final').hide();
+	$('.block-nhan-thiep').on('click', function() {
+		$(this).hide(500);
+		$('.nhan-thiep .action').hide(500);
+		$('.block-img-final').show(1000);
+	})
+}
+
 // CHẠY KHI DOCUMENT SẴN SÀNG
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -376,4 +385,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		let method = $(this).attr("data-provider");
 		method_ExportPicture(method)
 	})
+	// MỞ THIỆP
+	openCard();
 });

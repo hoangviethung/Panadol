@@ -13,7 +13,10 @@
 	}
 
 	.action {
+		margin-top: 50px;
+
 		h2 {
+			color     : #e11931;
 			text-align: center;
 		}
 	}
@@ -39,6 +42,11 @@
 				position : absolute;
 			}
 		}
+	}
+
+	.block-img-final {
+		margin-top: 50px;
+		text-align: center;
 	}
 
 	@media (max-width: 1024.98px) {
