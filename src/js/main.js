@@ -329,6 +329,16 @@ function ajaxFormSendMail() {
 							closeExisting: true,
 						}
 					})
+				} else {
+					$('#thong-bao h3').html(res.Message);
+					$.fancybox.open({
+						src: '#thong-bao',
+						type: 'inline',
+						opts: {
+							hash: false,
+							closeExisting: true,
+						}
+					})
 				}
 			}
 		});
