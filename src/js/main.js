@@ -287,24 +287,24 @@ function method_ExportPicture(params, _this) {
 			data: formData,
 			processData: false,
 			contentType: false,
-			// error: function() {
-			// 	$.fancybox.open({
-			// 		src: '#coppy-link',
-			// 		type: 'inline',
-			// 		opts: {
-			// 			hash: false,
-			// 			closeExisting: true,
-			// 			touch: false,
-			// 		}
-			// 	})
-			// 	$('#coppy-link input').val('ádasdasd');
-			// 	$('#coppy-link button').on('click', function() {
-			// 		var copyText = document.getElementById("link-final");
-			// 		copyText.select();
-			// 		copyText.setSelectionRange(0, 99999)
-			// 		document.execCommand("copy");
-			// 	})
-			// },
+			error: function() {
+				$.fancybox.open({
+					src: '#coppy-link',
+					type: 'inline',
+					opts: {
+						hash: false,
+						closeExisting: true,
+						touch: false,
+					}
+				})
+				$('#coppy-link input').val('ádasdasd');
+				$('#coppy-link button').on('click', function() {
+					var copyText = document.getElementById("link-final");
+					copyText.select();
+					copyText.setSelectionRange(0, 99999)
+					document.execCommand("copy");
+				})
+			},
 			success: function(res) {
 				if (res.Code == 200) {
 					$.fancybox.open({
