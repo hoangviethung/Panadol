@@ -241,13 +241,14 @@ function method_ExportPicture(params) {
 	} else if (params === "facebook") {
 		// CÁC TRƯỜNG INPUT
 		const provider = $('.list-share-social-media .item.checked').attr('data-provider');
+		// URL GỬI DATA
+		const url = $(this).attr('data-url');
 		$.ajax({
 			type: "POST",
-			url: "url",
+			url: url,
 			data: {
 				provider: provider,
 			},
-			dataType: "dataType",
 			success: function(res) {
 				if (res.Code == 200) {
 					const fullUrl = "https://www.facebook.com/sharer/sharer.php?u=" + window.location.protocol + "//" + window.location.host + res.Result
