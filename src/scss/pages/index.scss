@@ -287,11 +287,17 @@
 				}
 
 				h5 {
+
+					flex-basis: 0;
+					flex-grow : 1;
+					max-width : 100%;
+
 					font-weight   : 700;
 					text-transform: uppercase;
 					font-size     : 14px;
 					color         : #ffffff;
 					transition    : .3s all ease-in-out;
+					white-space   : nowrap;
 				}
 
 				&.facebook {
@@ -561,6 +567,10 @@
 
 				.item {
 					margin: 0 auto 15px;
+
+					h5 {
+						font-size: 12px;
+					}
 
 					&.download {
 						margin: 0 auto 15px;

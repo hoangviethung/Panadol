@@ -243,7 +243,6 @@ function method_ExportPicture(params, _this) {
 	// URL GỬI DATA
 	const _thisreal = _this;
 	const url = _thisreal.attr('data-url');
-	console.log(url);
 	// LINK HÌNH
 	const ImageURL = $('#download-hidden').attr('href');
 	const block = ImageURL.split(";");
