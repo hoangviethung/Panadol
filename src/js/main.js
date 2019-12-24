@@ -297,6 +297,7 @@ function method_ExportPicture(params, _this) {
 			// 			touch: false,
 			// 		}
 			// 	})
+			// 	$('#coppy-link input').val('ádasdasd');
 			// 	$('#coppy-link button').on('click', function() {
 			// 		var copyText = document.getElementById("link-final");
 			// 		copyText.select();
@@ -315,6 +316,7 @@ function method_ExportPicture(params, _this) {
 							touch: false,
 						}
 					})
+					$('#coppy-link input').val(res.Result);
 					$('#coppy-link button').on('click', function() {
 						var copyText = document.getElementById("link-final");
 						copyText.select();
@@ -361,6 +363,7 @@ function method_ExportPicture(params, _this) {
 							touch: false,
 						}
 					})
+					$('#coppy-link input').val(res.Result);
 					$('#coppy-link button').on('click', function() {
 						var copyText = document.getElementById("link-final");
 						copyText.select();
