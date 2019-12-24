@@ -190,6 +190,7 @@ function exportPicture() {
 
 	$('.step-2').hide();
 	$('.number-step-2').hide();
+	// QUA BƯỚC 2
 	$('.step-1 .button-next-step').on('click', function(e) {
 		const result = new Promise((resolve) => {
 			let widthX = $('#img-final').width();
@@ -226,6 +227,7 @@ function exportPicture() {
 			document.querySelector("#download-hidden").setAttribute("href", ImageURL);
 		})
 	});
+	// TRỞ LẠI BƯỚC 1
 	$('.step-2 .button-prev-step').on('click', function() {
 		$('.step-2').hide(500);
 		$('.step-1').show(500);
@@ -386,7 +388,6 @@ function openCard() {
 
 // CHẠY KHI DOCUMENT SẴN SÀNG
 document.addEventListener('DOMContentLoaded', () => {
-
 	// WOW JS
 	new WOW().init();
 	// LOADING
