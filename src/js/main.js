@@ -237,11 +237,13 @@ function exportPicture() {
 }
 
 // HÌNH THỨC XUẤT HÌNH
-function method_ExportPicture(params) {
+function method_ExportPicture(params, _this) {
 	// CÁC TRƯỜNG INPUT
 	const provider = $('.list-share-social-media .item.checked').attr('data-provider');
 	// URL GỬI DATA
-	const url = $(this).attr('data-url');
+	const _thisreal = _this;
+	const url = _thisreal.attr('data-url');
+	console.log(url);
 	// LINK HÌNH
 	const ImageURL = $('#download-hidden').attr('href');
 	const block = ImageURL.split(";");
@@ -386,11 +388,10 @@ function ajaxFormSendMail() {
 }
 
 function openCard() {
-	$('.block-img-final').hide();
 	$('.block-nhan-thiep').on('click', function() {
-		$(this).hide(500);
-		$('.nhan-thiep .action').hide(500);
-		$('.block-img-final').show(1000);
+		$(this).addClass('close');
+		$('.nhan-thiep .action').addClass('d-none');
+		$('.nhan-thiep .block-img-final').addClass('open');
 	})
 }
 
@@ -402,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	loading().then(() => {
 		// FANCYBOX
 		setTimeout(() => {
-			// $('#fancyboxOninit').trigger('click');
+			$('#fancyboxOninit').trigger('click');
 		}, 3000);
 	});
 	// SVG CONTROL
@@ -427,7 +428,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	// HÌNH THỨC XUẤT HÌNH
 	$(".list-share-social-media .item").on("click", function() {
 		let method = $(this).attr("data-provider");
-		method_ExportPicture(method)
+		const _this = $(this);
+		method_ExportPicture(method, _this)
 	})
 	// MỞ THIỆP
 	openCard();

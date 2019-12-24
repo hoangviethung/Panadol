@@ -13,7 +13,10 @@
 	}
 
 	.action {
-		margin-top: 50px;
+		position : absolute;
+		left     : 50%;
+		transform: translateX(-50%);
+		bottom   : 50px;
 
 		h2 {
 			color     : #e11931;
@@ -22,7 +25,12 @@
 	}
 
 	.block-nhan-thiep {
+		position  : absolute;
+		top       : 50%;
+		left      : 50%;
+		transform : translate(-50%, -50%);
 		margin-top: 50px;
+		transition: .3s all ease-in-out;
 
 		.card {
 			cursor       : pointer;
@@ -42,11 +50,25 @@
 				position : absolute;
 			}
 		}
+
+		&.close {
+			opacity: 0;
+		}
 	}
 
 	.block-img-final {
-		margin-top: 50px;
-		text-align: center;
+		position      : absolute;
+		top           : 50%;
+		left          : 50%;
+		transform     : translate(-50%, -50%);
+		transition    : .3s all ease-in-out;
+		opacity       : 0;
+		pointer-events: none;
+		visibility    : hidden;
+
+		&.open {
+			opacity: 1;
+		}
 	}
 
 	@media (max-width: 1024.98px) {
