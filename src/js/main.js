@@ -236,13 +236,13 @@ function exportPicture() {
 
 // HÌNH THỨC XUẤT HÌNH
 function method_ExportPicture(params) {
+	// CÁC TRƯỜNG INPUT
+	const provider = $('.list-share-social-media .item.checked').attr('data-provider');
+	// URL GỬI DATA
+	const url = $(this).attr('data-url');
 	if (params === "sendMail") {
 		ajaxFormSendMail();
 	} else if (params === "facebook") {
-		// CÁC TRƯỜNG INPUT
-		const provider = $('.list-share-social-media .item.checked').attr('data-provider');
-		// URL GỬI DATA
-		const url = $(this).attr('data-url');
 		$.ajax({
 			type: "POST",
 			url: url,
@@ -267,8 +267,38 @@ function method_ExportPicture(params) {
 				}
 			}
 		});
+	} else if (params === "messenger") {
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: {
+				provider: provider,
+			},
+			success: function(res) {
+				if (res.Code == 200) {
+					console.log("Gửi thành công" + res.Result);
+				} else {
+					console.log("Gửi thất bại" + res.Result);
+				}
+			}
+		});
+	} else if (params === "zalo") {
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: {
+				provider: provider,
+			},
+			success: function(res) {
+				if (res.Code == 200) {
+					console.log("Gửi thành công" + res.Result);
+				} else {
+					console.log("Gửi thất bại" + res.Result);
+				}
+			}
+		});
 	} else if (params === "download") {
-		document.querySelector("#download-hidden").click();
+		document.querySelector("#download-hidden").click()
 	}
 }
 
@@ -363,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	loading().then(() => {
 		// FANCYBOX
 		setTimeout(() => {
-			// $('#fancyboxOninit').trigger('click');
+			$('#fancyboxOninit').trigger('click');
 		}, 3000);
 	});
 	// SVG CONTROL
