@@ -287,11 +287,42 @@ function method_ExportPicture(params, _this) {
 			data: formData,
 			processData: false,
 			contentType: false,
+			// error: function() {
+			// 	$.fancybox.open({
+			// 		src: '#coppy-link',
+			// 		type: 'inline',
+			// 		opts: {
+			// 			hash: false,
+			// 			closeExisting: true,
+			// 			touch: false,
+			// 		}
+			// 	})
+			// 	$('#coppy-link button').on('click', function() {
+			// 		var copyText = document.getElementById("link-final");
+			// 		copyText.select();
+			// 		copyText.setSelectionRange(0, 99999)
+			// 		document.execCommand("copy");
+			// 	})
+			// },
 			success: function(res) {
 				if (res.Code == 200) {
-					console.log("Gửi thành công" + res.Result);
+					$.fancybox.open({
+						src: '#coppy-link',
+						type: 'inline',
+						opts: {
+							hash: false,
+							closeExisting: true,
+							touch: false,
+						}
+					})
+					$('#coppy-link button').on('click', function() {
+						var copyText = document.getElementById("link-final");
+						copyText.select();
+						copyText.setSelectionRange(0, 99999)
+						document.execCommand("copy");
+					})
 				} else {
-					console.log("Gửi thất bại" + res.Result);
+					console.log("Gửi thất bại");
 				}
 			}
 		});
@@ -302,14 +333,46 @@ function method_ExportPicture(params, _this) {
 			data: formData,
 			processData: false,
 			contentType: false,
+			// error: function() {
+			// 	$.fancybox.open({
+			// 		src: '#coppy-link',
+			// 		type: 'inline',
+			// 		opts: {
+			// 			hash: false,
+			// 			closeExisting: true,
+			// 			touch: false,
+			// 		}
+			// 	})
+			// 	$('#coppy-link button').on('click', function() {
+			// 		var copyText = document.getElementById("link-final");
+			// 		copyText.select();
+			// 		copyText.setSelectionRange(0, 99999)
+			// 		document.execCommand("copy");
+			// 	})
+			// },
 			success: function(res) {
 				if (res.Code == 200) {
-					console.log("Gửi thành công" + res.Result);
+					$.fancybox.open({
+						src: '#coppy-link',
+						type: 'inline',
+						opts: {
+							hash: false,
+							closeExisting: true,
+							touch: false,
+						}
+					})
+					$('#coppy-link button').on('click', function() {
+						var copyText = document.getElementById("link-final");
+						copyText.select();
+						copyText.setSelectionRange(0, 99999)
+						document.execCommand("copy");
+					})
 				} else {
-					console.log("Gửi thất bại" + res.Result);
+					console.log("Gửi thất bại");
 				}
 			}
 		});
+
 	} else if (params === "download") {
 		document.querySelector("#download-hidden").click()
 	}
@@ -402,7 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	loading().then(() => {
 		// FANCYBOX
 		setTimeout(() => {
-			$('#fancyboxOninit').trigger('click');
+			// $('#fancyboxOninit').trigger('click');
 		}, 3000);
 	});
 	// SVG CONTROL

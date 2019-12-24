@@ -48,6 +48,14 @@ html(lang="en")
 				h3
 				.close-button(data-fancybox-close)
 					img(src="./assets/images/icons/close.svg", alt="", srcset="")
+		// POPUP COPPY LINK
+		.d-none
+			.block-popup#coppy-link
+				h3 Copy link để chia sẻ:
+				input#link-final(type="text" value="this is link" readonly)
+				button Copy
+				.close-button(data-fancybox-close)
+					img(src="./assets/images/icons/close.svg", alt="", srcset="")
 		// POPUP VIDEO QUẢNG CÁO
 		a.d-none#fancyboxOninit(data-fancybox href="https://www.youtube.com/watch?v=9BUjXZ-zc9k")
 		// LINK BASE 64
