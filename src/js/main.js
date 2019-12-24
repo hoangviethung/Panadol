@@ -239,9 +239,33 @@ function method_ExportPicture(params) {
 	if (params === "sendMail") {
 		ajaxFormSendMail();
 	} else if (params === "facebook") {
-		var fullUrl = "https://www.facebook.com/sharer/sharer.php?u=" + window.location.protocol + "//" + window.location.host
-		$(".item.facebook").append(`<a href=${fullUrl} target="_blank"></a>`)
-		window.open(fullUrl)
+		// CÁC TRƯỜNG INPUT
+		const provider = $('.list-share-social-media .item.checked').attr('data-provider');
+		$.ajax({
+			type: "POST",
+			url: "url",
+			data: {
+				provider: provider,
+			},
+			dataType: "dataType",
+			success: function(res) {
+				if (res.Code == 200) {
+					const fullUrl = "https://www.facebook.com/sharer/sharer.php?u=" + window.location.protocol + "//" + window.location.host + res.Result
+					$("#facebook-share").append(`<a href=${fullUrl} target="_blank"></a>`)
+					window.open(fullUrl)
+				} else {
+					$('#thong-bao h3').html(res.Message);
+					$.fancybox.open({
+						src: '#thong-bao',
+						type: 'inline',
+						opts: {
+							hash: false,
+							closeExisting: true,
+						}
+					})
+				}
+			}
+		});
 	} else if (params === "download") {
 		document.querySelector("#download-hidden").click();
 	}
@@ -338,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	loading().then(() => {
 		// FANCYBOX
 		setTimeout(() => {
-			$('#fancyboxOninit').trigger('click');
+			// $('#fancyboxOninit').trigger('click');
 		}, 3000);
 	});
 	// SVG CONTROL
