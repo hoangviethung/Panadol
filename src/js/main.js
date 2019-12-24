@@ -330,8 +330,7 @@ function ajaxFormSendMail() {
 		formData.append('formTo', formTo);
 		formData.append('formTitle', formTitle, );
 		formData.append('formContent', formContent, );
-		formData.append('img', img);
-
+		formData.append('img', blob, 'chucmungnammoi.png');
 		$.ajax({
 			type: "POST",
 			url: url,
