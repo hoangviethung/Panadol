@@ -265,8 +265,7 @@ function method_ExportPicture(params) {
 			success: function(res) {
 				if (res.Code == 200) {
 					const fullUrl = "https://www.facebook.com/sharer/sharer.php?u=" + window.location.protocol + "//" + window.location.host + res.Result
-					$("#facebook-share").append(`<a href=${fullUrl} target="_blank"></a>`)
-					window.open(fullUrl)
+					window.open(fullUrl, '_blank');
 				} else {
 					$('#thong-bao h3').html(res.Message);
 					$.fancybox.open({
