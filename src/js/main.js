@@ -242,15 +242,26 @@ function method_ExportPicture(params) {
 	const provider = $('.list-share-social-media .item.checked').attr('data-provider');
 	// URL GỬI DATA
 	const url = $(this).attr('data-url');
+	// LINK HÌNH
+	const ImageURL = $('#download-hidden').attr('href');
+	const block = ImageURL.split(";");
+	const contentType = block[0].split(":")[1];
+	const realData = block[1].split(",")[1];
+	const blob = b64toBlob(realData, contentType);
+	// AJAX GỬI DATA
+	let formData = new FormData();
+	formData.append('provider', provider);
+	formData.append('img', blob, 'happy-new-year.png');
+	// GỬI HÌNH
 	if (params === "sendMail") {
 		ajaxFormSendMail();
 	} else if (params === "facebook") {
 		$.ajax({
 			type: "POST",
 			url: url,
-			data: {
-				provider: provider,
-			},
+			data: formData,
+			processData: false,
+			contentType: false,
 			success: function(res) {
 				if (res.Code == 200) {
 					const fullUrl = "https://www.facebook.com/sharer/sharer.php?u=" + window.location.protocol + "//" + window.location.host + res.Result
@@ -273,9 +284,9 @@ function method_ExportPicture(params) {
 		$.ajax({
 			type: "POST",
 			url: url,
-			data: {
-				provider: provider,
-			},
+			data: formData,
+			processData: false,
+			contentType: false,
 			success: function(res) {
 				if (res.Code == 200) {
 					console.log("Gửi thành công" + res.Result);
@@ -288,9 +299,9 @@ function method_ExportPicture(params) {
 		$.ajax({
 			type: "POST",
 			url: url,
-			data: {
-				provider: provider,
-			},
+			data: formData,
+			processData: false,
+			contentType: false,
 			success: function(res) {
 				if (res.Code == 200) {
 					console.log("Gửi thành công" + res.Result);
@@ -321,7 +332,6 @@ function ajaxFormSendMail() {
 		const realData = block[1].split(",")[1];
 
 		const blob = b64toBlob(realData, contentType);
-		const img = blob;
 		// URL GỬI DATA
 		const url = $(this).attr('data-url');
 		// AJAX GỬI DATA
@@ -330,7 +340,7 @@ function ajaxFormSendMail() {
 		formData.append('formTo', formTo);
 		formData.append('formTitle', formTitle, );
 		formData.append('formContent', formContent, );
-		formData.append('img', blob, 'chucmungnammoi.png');
+		formData.append('img', blob, 'happy-new-year.png');
 		$.ajax({
 			type: "POST",
 			url: url,
@@ -393,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	loading().then(() => {
 		// FANCYBOX
 		setTimeout(() => {
-			$('#fancyboxOninit').trigger('click');
+			// $('#fancyboxOninit').trigger('click');
 		}, 3000);
 	});
 	// SVG CONTROL
