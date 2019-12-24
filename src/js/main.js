@@ -254,9 +254,9 @@ function method_ExportPicture(params, _this) {
 	formData.append('provider', provider);
 	formData.append('img', blob, 'happy-new-year.png');
 	// GỬI HÌNH
-	if (params === "sendMail") {
+	if (params == 4) {
 		ajaxFormSendMail();
-	} else if (params === "facebook") {
+	} else if (params == 1) {
 		$.ajax({
 			type: "POST",
 			url: url,
@@ -280,7 +280,7 @@ function method_ExportPicture(params, _this) {
 				}
 			}
 		});
-	} else if (params === "messenger") {
+	} else if (params == 2) {
 		$.ajax({
 			type: "POST",
 			url: url,
@@ -328,7 +328,7 @@ function method_ExportPicture(params, _this) {
 				}
 			}
 		});
-	} else if (params === "zalo") {
+	} else if (params == 3) {
 		$.ajax({
 			type: "POST",
 			url: url,
@@ -376,7 +376,7 @@ function method_ExportPicture(params, _this) {
 			}
 		});
 
-	} else if (params === "download") {
+	} else if (params == 5) {
 		document.querySelector("#download-hidden").click()
 	}
 }
