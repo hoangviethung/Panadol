@@ -110,7 +110,7 @@ function chooseContentDefault() {
 	});
 }
 
-// CHỌN MÀY CHỮ
+// CHỌN MÀU CHỮ
 function chooseColorContent() {
 	$('.write .list-bottom .color-content span').on('click', function() {
 		$(this).addClass('checked');
@@ -238,6 +238,28 @@ function exportPicture() {
 
 // HÌNH THỨC XUẤT HÌNH
 function method_ExportPicture(params, _this) {
+
+	const setImageUrlToShare = response => {
+		const ImageUrlHiddenInput = document.getElementById('image-url');
+		if (ImageUrlHiddenInput) {
+			ImageUrlHiddenInput.value = window.location.protocol + "//" + window.location.host + response.Result;
+		}
+	}
+
+	const getImageUrlToShare = () => {
+		const ImageUrlHiddenInput = document.getElementById('image-url');
+		if (ImageUrlHiddenInput) {
+			const ImageUrlHiddenInputValue = ImageUrlHiddenInput.value;
+			if (ImageUrlHiddenInputValue.length > 0) {
+				return document.getElementById('image-url').value
+			}
+			return null;
+		}
+		return null;
+	};
+
+
+
 	// CÁC TRƯỜNG INPUT
 	const provider = $('.list-share-social-media .item.checked').attr('data-provider');
 	// URL GỬI DATA
@@ -257,125 +279,171 @@ function method_ExportPicture(params, _this) {
 	if (params == 4) {
 		ajaxFormSendMail();
 	} else if (params == 1) {
-		$.ajax({
-			type: "POST",
-			url: url,
-			data: formData,
-			processData: false,
-			contentType: false,
-			success: function(res) {
-				if (res.Code == 200) {
-					const fullUrl = "https://www.facebook.com/sharer/sharer.php?u=" + window.location.protocol + "//" + window.location.host + res.Result
-					window.open(fullUrl, '_blank');
-				} else {
-					$('#thong-bao h3').html(res.Message);
-					$.fancybox.open({
-						src: '#thong-bao',
-						type: 'inline',
-						opts: {
-							hash: false,
-							closeExisting: true,
-						}
-					})
+		if (getImageUrlToShare() == null) {
+			$.ajax({
+				type: "POST",
+				url: url,
+				data: formData,
+				processData: false,
+				contentType: false,
+				success: function(res) {
+					if (res.Code == 200) {
+						setImageUrlToShare(res);
+						const fullUrl = "https://www.facebook.com/sharer/sharer.php?u=" + window.location.protocol + "//" + window.location.host + res.Result
+						window.open(fullUrl, '_blank');
+					} else {
+						$('#thong-bao h3').html(res.Message);
+						$.fancybox.open({
+							src: '#thong-bao',
+							type: 'inline',
+							opts: {
+								hash: false,
+								closeExisting: true,
+							}
+						})
+					}
 				}
-			}
-		});
+			});
+		} else {
+			const fullUrl = "https://www.facebook.com/sharer/sharer.php?u=" + getImageUrlToShare()
+			window.open(fullUrl, '_blank');
+		}
 	} else if (params == 2) {
-		$.ajax({
-			type: "POST",
-			url: url,
-			data: formData,
-			processData: false,
-			contentType: false,
-			// error: function() {
-			// 	$.fancybox.open({
-			// 		src: '#coppy-link',
-			// 		type: 'inline',
-			// 		opts: {
-			// 			hash: false,
-			// 			closeExisting: true,
-			// 			touch: false,
-			// 		}
-			// 	})
-			// 	$('#coppy-link input').val('ádasdasd');
-			// 	$('#coppy-link button').on('click', function() {
-			// 		var copyText = document.getElementById("link-final");
-			// 		copyText.select();
-			// 		copyText.setSelectionRange(0, 99999)
-			// 		document.execCommand("copy");
-			// 	})
-			// },
-			success: function(res) {
-				if (res.Code == 200) {
-					$.fancybox.open({
-						src: '#coppy-link',
-						type: 'inline',
-						opts: {
-							hash: false,
-							closeExisting: true,
-							touch: false,
-						}
-					})
-					$('#coppy-link input').val(res.Result);
-					$('#coppy-link button').on('click', function() {
-						var copyText = document.getElementById("link-final");
-						copyText.select();
-						copyText.setSelectionRange(0, 99999)
-						document.execCommand("copy");
-					})
-				} else {
-					console.log("Gửi thất bại");
-				}
-			}
-		});
-	} else if (params == 3) {
-		$.ajax({
-			type: "POST",
-			url: url,
-			data: formData,
-			processData: false,
-			contentType: false,
-			// error: function() {
-			// 	$.fancybox.open({
-			// 		src: '#coppy-link',
-			// 		type: 'inline',
-			// 		opts: {
-			// 			hash: false,
-			// 			closeExisting: true,
-			// 			touch: false,
-			// 		}
-			// 	})
-			// 	$('#coppy-link button').on('click', function() {
-			// 		var copyText = document.getElementById("link-final");
-			// 		copyText.select();
-			// 		copyText.setSelectionRange(0, 99999)
-			// 		document.execCommand("copy");
-			// 	})
-			// },
-			success: function(res) {
-				if (res.Code == 200) {
-					$.fancybox.open({
-						src: '#coppy-link',
-						type: 'inline',
-						opts: {
-							hash: false,
-							closeExisting: true,
-							touch: false,
-						}
-					})
-					$('#coppy-link input').val(res.Result);
-					$('#coppy-link button').on('click', function() {
-						var copyText = document.getElementById("link-final");
-						copyText.select();
-						copyText.setSelectionRange(0, 99999)
-						document.execCommand("copy");
-					})
-				} else {
-					console.log("Gửi thất bại");
-				}
-			}
-		});
 
+		if (getImageUrlToShare() == null) {
+			$.ajax({
+				type: "POST",
+				url: url,
+				data: formData,
+				processData: false,
+				contentType: false,
+				// error: function() {
+				// 	$.fancybox.open({
+				// 		src: '#coppy-link',
+				// 		type: 'inline',
+				// 		opts: {
+				// 			hash: false,
+				// 			closeExisting: true,
+				// 			touch: false,
+				// 		}
+				// 	})
+				// 	$('#coppy-link input').val('ádasdasd');
+				// 	$('#coppy-link button').on('click', function() {
+				// 		var copyText = document.getElementById("link-final");
+				// 		copyText.select();
+				// 		copyText.setSelectionRange(0, 99999)
+				// 		document.execCommand("copy");
+				// 	})
+				// },
+				success: function(res) {
+					if (res.Code == 200) {
+						setImageUrlToShare(res);
+						$.fancybox.open({
+							src: '#coppy-link',
+							type: 'inline',
+							opts: {
+								hash: false,
+								closeExisting: true,
+								touch: false,
+							}
+						})
+						$('#coppy-link input').val(res.Result);
+						$('#coppy-link button').on('click', function() {
+							var copyText = document.getElementById("link-final");
+							copyText.select();
+							copyText.setSelectionRange(0, 99999)
+							document.execCommand("copy");
+						})
+					} else {
+						console.log("Gửi thất bại");
+					}
+				}
+			});
+		} else {
+			$.fancybox.open({
+				src: '#coppy-link',
+				type: 'inline',
+				opts: {
+					hash: false,
+					closeExisting: true,
+					touch: false,
+				}
+			})
+			$('#coppy-link input').val(getImageUrlToShare());
+			$('#coppy-link button').on('click', function() {
+				var copyText = document.getElementById("link-final");
+				copyText.select();
+				copyText.setSelectionRange(0, 99999)
+				document.execCommand("copy");
+			})
+		}
+	} else if (params == 3) {
+		if (getImageUrlToShare() == null) {
+			$.ajax({
+				type: "POST",
+				url: url,
+				data: formData,
+				processData: false,
+				contentType: false,
+				// error: function() {
+				// 	$.fancybox.open({
+				// 		src: '#coppy-link',
+				// 		type: 'inline',
+				// 		opts: {
+				// 			hash: false,
+				// 			closeExisting: true,
+				// 			touch: false,
+				// 		}
+				// 	})
+				// 	$('#coppy-link button').on('click', function() {
+				// 		var copyText = document.getElementById("link-final");
+				// 		copyText.select();
+				// 		copyText.setSelectionRange(0, 99999)
+				// 		document.execCommand("copy");
+				// 	})
+				// },
+				success: function(res) {
+					if (res.Code == 200) {
+						setImageUrlToShare(res);
+						$.fancybox.open({
+							src: '#coppy-link',
+							type: 'inline',
+							opts: {
+								hash: false,
+								closeExisting: true,
+								touch: false,
+							}
+						})
+						$('#coppy-link input').val(res.Result);
+						$('#coppy-link button').on('click', function() {
+							var copyText = document.getElementById("link-final");
+							copyText.select();
+							copyText.setSelectionRange(0, 99999)
+							document.execCommand("copy");
+						})
+					} else {
+						console.log("Gửi thất bại");
+					}
+				}
+			});
+		} else {
+			$.fancybox.open({
+				src: '#coppy-link',
+				type: 'inline',
+				opts: {
+					hash: false,
+					closeExisting: true,
+					touch: false,
+				}
+			})
+			$('#coppy-link input').val(getImageUrlToShare());
+			$('#coppy-link button').on('click', function() {
+				var copyText = document.getElementById("link-final");
+				copyText.select();
+				copyText.setSelectionRange(0, 99999)
+				document.execCommand("copy");
+			})
+		}
 	} else if (params == 5) {
 		document.querySelector("#download-hidden").click()
 	}
@@ -452,6 +520,12 @@ function ajaxFormSendMail() {
 	});
 }
 
+function clearImageUrlInputHidden() {
+	$('.button-prev-step').on('click', function () {
+		$('#image-url').val(null)
+	})
+}
+
 function openCard() {
 	$('.block-nhan-thiep').on('click', function() {
 		$(this).addClass('close');
@@ -498,4 +572,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 	// MỞ THIỆP
 	openCard();
+	clearImageUrlInputHidden();
 });
