@@ -290,7 +290,7 @@ function method_ExportPicture(params, _this) {
 					if (res.Code == 200) {
 						setImageUrlToShare(res);
 						const fullUrl = "https://www.facebook.com/sharer/sharer.php?u=" + window.location.protocol + "//" + window.location.host + res.Result
-						window.open(fullUrl, '_blank');
+						window.open(fullUrl, 'fbShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
 					} else {
 						$('#thong-bao h3').html(res.Message);
 						$.fancybox.open({
