@@ -1,80 +1,93 @@
 .nhan-thiep {
-	position           : relative;
-	background-image   : url(../assets/images/background/bg-nhan-thiep.png);
-	background-size    : cover;
+	position: relative;
+	background-image: url(../assets/images/background/bg-nhan-thiep.png);
+	background-size: cover;
 	background-position: center;
-	background-repeat  : no-repeat;
-	height             : 100vh;
-	padding-top        : 50px;
-	overflow           : hidden;
+	background-repeat: no-repeat;
+	height: 100vh;
+	padding-top: 50px;
+	overflow: hidden;
 
 	.title {
 		width: 620px;
 	}
 
 	.action {
-		position : absolute;
-		left     : 50%;
+		position: absolute;
+		left: 50%;
 		transform: translateX(-50%);
-		bottom   : 50px;
+		bottom: 30px;
 
 		h2 {
-			color     : #e11931;
+			color: #e11931;
 			text-align: center;
 		}
 	}
 
 	.block-nhan-thiep {
-		position  : absolute;
-		top       : 55%;
-		left      : 50%;
-		transform : translate(-50%, -50%);
+		transform: translate(-50%, -50%);
 		transition: .3s all ease-in-out;
-		width     : 500px;
-		height    : 500px;
+		position: absolute;
+		left: 50%;
+		top: 60%;
+		width: 500px;
+		height: 500px;
 
 		.card {
-			cursor       : pointer;
-			position     : relative;
+			cursor: pointer;
+			position: relative;
 			border-radius: 3px;
-			border       : 3px solid #ffe618;
-			background   : #e11931;
-			margin       : 0 auto;
-			overflow     : hidden;
-			width        : 100%;
-			height       : 100%;
+			border: 3px solid #ffe618;
+			background: #e11931;
+			margin: 0 auto;
+			overflow: hidden;
+			width: 100%;
+			height: 100%;
 
 			.icon {
-				top      : 100%;
-				left     : 100%;
+				top: 100%;
+				left: 100%;
 				// transform: translate(-50%, -50%);
 				// position : absolute;
 			}
 		}
 
 		&.close {
-			opacity       : 0;
+			opacity: 0;
 			pointer-events: none;
-			visibility    : hidden;
+			visibility: hidden;
 		}
 	}
 
 	.block-img-final {
-		position      : absolute;
-		top           : 55%;
-		left          : 50%;
-		transform     : translate(-50%, -50%);
-		transition    : .3s all ease-in-out;
-		opacity       : 0;
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: .3s all ease-in-out;
+		opacity: 0;
 		pointer-events: none;
-		visibility    : hidden;
-		width         : 500px;
-		height        : 500px;
+		visibility: hidden;
+		top: 60%;
+		width: 500px;
+		height: 500px;
 
 		&.open {
-			opacity       : 1;
-			visibility    : visible;
+			opacity: 1;
+			visibility: visible;
 			pointer-events: visible;
+		}
+	}
+
+	@media (max-width: 1609.98px) {
+		.block-nhan-thiep {
+			width: 400px;
+			height: 400px;
+		}
+
+		.block-img-final {
+			top: 60%;
+			width: 400px;
+			height: 400px;
 		}
 	}
 
@@ -98,13 +111,13 @@
 		}
 
 		.block-nhan-thiep {
-			width : 300px;
+			width: 300px;
 			height: 300px;
 		}
 
 		.block-img-final {
-			top   : 50%;
-			width : 300px;
+			top: 50%;
+			width: 300px;
 			height: 300px;
 		}
 	}
