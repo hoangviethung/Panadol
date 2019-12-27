@@ -495,6 +495,9 @@ function ajaxFormSendMail() {
 		// CÁC TRƯỜNG INPUT
 		const provider = $('.list-share-social-media .item.checked').attr('data-provider');
 
+		const name = $('#name').val();
+		const email = $('#email').val();
+
 		const formTo = $('#send-mail #formTo').val();
 		const formTitle = $('#send-mail #formTitle').val();
 		const formContent = $('#send-mail #formContent').val();
@@ -512,6 +515,8 @@ function ajaxFormSendMail() {
 		let formData = new FormData();
 		formData.append('provider', provider);
 		formData.append('formTo', formTo);
+		formData.append('name', name);
+		formData.append('email', email);
 		formData.append('formTitle', formTitle, );
 		formData.append('formContent', formContent, );
 		formData.append('img', blob, 'happy-new-year.png');
