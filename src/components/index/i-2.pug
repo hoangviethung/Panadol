@@ -58,13 +58,12 @@
 			.step-3
 				h3 thông tin của bạn
 				.block-form
-					form(action="#" method="method")
-						.form-group
-							label(for="") Tên
-							input(type="text" placeholder="Nhập têm của bạn")
-						.form-group
-							label(for="") Email
-							input(type="text" placeholder="Nhập địa chỉ Email")
+					.form-group
+						label Tên
+						input#name(type="text" placeholder="Nhập têm của bạn")
+					.form-group
+						label(for="") Email
+						input#email(type="text" placeholder="Nhập địa chỉ Email")
 				.list-step
 					.button-prev-step.mr-20px
 						img.lazyload(data-src="./assets/images/icons/arrow-prev-step.svg", alt="", srcset="")
