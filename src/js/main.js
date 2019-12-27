@@ -314,6 +314,7 @@ function method_ExportPicture(params, _this) {
 	formData.append('provider', provider);
 	formData.append('name', name);
 	formData.append('email', email);
+	formData.append('img', blob, 'happy-new-year.png');
 	// GỬI HÌNH
 	if (params == 4) {
 		ajaxFormSendMail();
