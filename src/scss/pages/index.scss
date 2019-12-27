@@ -49,6 +49,28 @@
 	}
 
 	.step-1 {
+		h3 {
+			font-size     : 26px;
+			color         : #ffffff;
+			text-align    : center;
+			text-transform: uppercase;
+			margin-bottom : 25px;
+		}
+
+		figure {
+			width : 500px;
+			height: 500px;
+			margin: 0 auto;
+		}
+
+		.list-step {
+			margin-top     : 20px;
+			display        : flex;
+			justify-content: center;
+		}
+	}
+
+	.step-2 {
 		width : 1150px;
 		margin: 0 auto;
 
@@ -233,7 +255,57 @@
 		}
 	}
 
-	.step-2 {
+	.step-3 {
+		position : absolute;
+		width    : 525px;
+		top      : 50%;
+		left     : 50%;
+		transform: translate(-50%, -50%);
+
+		h3 {
+			font-size     : 26px;
+			color         : #ffffff;
+			text-align    : center;
+			text-transform: uppercase;
+			margin-bottom : 25px;
+		}
+
+		.block-form {
+			margin-top: 40px;
+
+			.form-group {
+				display      : flex;
+				flex-wrap    : wrap;
+				align-items  : center;
+				margin-bottom: 25px;
+
+				label {
+					font-size : 20px;
+					color     : #ffffff;
+					flex-basis: 0;
+					flex-grow : 1;
+					max-width : 100%;
+				}
+
+				input {
+					flex         : 0 0 80%;
+					max-width    : 80%;
+					border       : none;
+					line-height  : 47px;
+					border-radius: 23.5px;
+					padding      : 0 25px;
+				}
+			}
+		}
+
+		.list-step {
+			margin-top     : 35px;
+			display        : flex;
+			justify-content: center;
+		}
+	}
+
+	.step-4 {
 		position : absolute;
 		width    : 385px;
 		left     : 50%;
@@ -405,7 +477,7 @@
 			margin: 45px auto 0;
 		}
 
-		.step-1 {
+		.step-2 {
 			width: 90%;
 
 			.list-task {
@@ -425,7 +497,7 @@
 			height: auto;
 		}
 
-		.step-1 {
+		.step-2 {
 			width: 100%;
 
 			.list-task {
@@ -468,7 +540,15 @@
 			}
 		}
 
-		.step-2 {
+		.step-3 {
+			position : static;
+			top      : unset;
+			left     : unset;
+			transform: none;
+			width    : 100%;
+		}
+
+		.step-4 {
 			position : static;
 			top      : unset;
 			left     : unset;
@@ -513,6 +593,17 @@
 		}
 
 		.step-1 {
+			h3 {
+				font-size: 14px;
+			}
+
+			figure {
+				width : 90%;
+				height: 90%;
+			}
+		}
+
+		.step-2 {
 			.list-task {
 				h3 {
 					font-size    : 18px;
@@ -554,7 +645,30 @@
 
 		}
 
-		.step-2 {
+		.step-3 {
+			h3 {
+				font-size: 14px;
+			}
+
+			.block-form {
+				margin-top: 40px;
+
+				.form-group {
+					margin-bottom: 15px;
+
+					label {
+						font-size: 14px;
+					}
+
+					input {
+						font-size  : 14px;
+						line-height: 30px;
+					}
+				}
+			}
+		}
+
+		.step-4 {
 			margin: 25px 0;
 
 			.title-step-2 {
@@ -583,7 +697,9 @@
 			padding: 25px 0;
 
 			.number-step-1,
-			.number-step-2 {
+			.number-step-2,
+			.number-step-3,
+			.number-step-4 {
 				width : 30%;
 				margin: 0 auto;
 			}

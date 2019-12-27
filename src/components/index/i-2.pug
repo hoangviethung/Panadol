@@ -6,6 +6,16 @@
 		.block-section
 			//- BƯỚC 1
 			.step-1
+				h3 Tạo chiếc bánh chứa đựng câu chúc
+					br
+					|cho người bạn yêu quý
+				figure
+					img.ofc.lazyload(data-src="./assets/images/background/step-2.png", alt="", srcset="")
+				.list-step
+					.button-next-step
+						span gửi thiệp
+			//- BƯỚC 2
+			.step-2
 				.row.list-task
 					.result.col-lg-8
 						.result-img
@@ -15,6 +25,9 @@
 								figcaption
 									p
 						.list-step
+							.button-prev-step.mr-20px
+								img.lazyload(data-src="./assets/images/icons/arrow-prev-step.svg", alt="", srcset="")
+								span trở về
 							.button-next-step
 								span gửi thiệp
 								img.lazyload(data-src="./assets/images/icons/arrow-next-step.svg", alt="", srcset="")
@@ -41,8 +54,26 @@
 											p Tối đa 
 												span 50 
 												| ký tự
-			//- BƯỚC 2
-			.step-2
+			//- BƯỚC 3
+			.step-3
+				h3 thông tin của bạn
+				.block-form
+					form(action="#" method="method")
+						.form-group
+							label(for="") Tên
+							input(type="text" placeholder="Nhập têm của bạn")
+						.form-group
+							label(for="") Email
+							input(type="text" placeholder="Nhập địa chỉ Email")
+				.list-step
+					.button-prev-step.mr-20px
+						img.lazyload(data-src="./assets/images/icons/arrow-prev-step.svg", alt="", srcset="")
+						span trở về
+					.button-next-step
+						span gửi thiệp
+						img.lazyload(data-src="./assets/images/icons/arrow-next-step.svg", alt="", srcset="")
+			//- BƯỚC 4
+			.step-4
 				figure
 					img.ofc(src="./assets/images/background/step-2.png", alt="", srcset="")
 				.title-step-2 gửi tặng bánh ngay
@@ -71,3 +102,7 @@
 				img.lazyload(data-src="./assets/images/icons/step-1.png", alt="", srcset="")
 			.number-step-2
 				img.lazyload(data-src="./assets/images/icons/step-2.png", alt="", srcset="")
+			.number-step-3
+				img.lazyload(data-src="./assets/images/icons/step-3.png", alt="", srcset="")
+			.number-step-4
+				img.lazyload(data-src="./assets/images/icons/step-4.png", alt="", srcset="")

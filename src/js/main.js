@@ -190,8 +190,29 @@ function exportPicture() {
 
 	$('.step-2').hide();
 	$('.number-step-2').hide();
+	$('.step-3').hide();
+	$('.number-step-3').hide();
+	$('.step-4').hide();
+	$('.number-step-4').hide();
+
 	// QUA BƯỚC 2
-	$('.step-1 .button-next-step').on('click', function(e) {
+	$('.step-1 .button-next-step').on('click', function() {
+		$('.step-1').hide(500);
+		$('.number-step-1').hide(500);
+		$('.step-2').show(500);
+		$('.number-step-2').show(500);
+	});
+
+	// TRỞ VỀ BƯỚC 1
+	$('.step-2 .button-prev-step').on('click', function() {
+		$('.step-2').hide(500);
+		$('.number-step-2').hide(500);
+		$('.step-1').show(500);
+		$('.number-step-1').show(500);
+	});
+
+	// TỚI BƯỚC 3
+	$('.step-2 .button-next-step').on('click', function(e) {
 		const result = new Promise((resolve) => {
 			let widthX = $('#img-final').width();
 			let heightX = $('#img-final').height();
@@ -209,10 +230,10 @@ function exportPicture() {
 
 			}).then((canvas) => {
 				let imgBase64 = canvas.toDataURL("image/png");
-				$('.step-1').hide(500);
-				$('.step-2').show(500);
-				$('.number-step-1').hide(500);
-				$('.number-step-2').show(500);
+				$('.step-2').hide(500);
+				$('.step-3').show(500);
+				$('.number-step-2').hide(500);
+				$('.number-step-3').show(500);
 				if ($('html').width() <= 768) {
 					$('html, body').animate({
 						scrollTop: $('#index-2').offset().top - 100
@@ -227,12 +248,29 @@ function exportPicture() {
 			document.querySelector("#download-hidden").setAttribute("href", ImageURL);
 		})
 	});
-	// TRỞ LẠI BƯỚC 1
-	$('.step-2 .button-prev-step').on('click', function() {
-		$('.step-2').hide(500);
-		$('.step-1').show(500);
-		$('.number-step-2').hide(500);
-		$('.number-step-1').show(500);
+
+	// TRỞ LẠI BƯỚC 2
+	$('.step-3 .button-prev-step').on('click', function() {
+		$('.step-3').hide(500);
+		$('.step-2').show(500);
+		$('.number-step-3').hide(500);
+		$('.number-step-2').show(500);
+	})
+
+	// TỚI BƯỚC 4
+	$('.step-3 .button-next-step').on('click', function() {
+		$('.step-3').hide(500);
+		$('.step-4').show(500);
+		$('.number-step-3').hide(500);
+		$('.number-step-4').show(500);
+	})
+
+	// TRỞ LẠI BƯỚC 3
+	$('.step-4 .button-prev-step').on('click', function() {
+		$('.step-4').hide(500);
+		$('.step-3').show(500);
+		$('.number-step-4').hide(500);
+		$('.number-step-3').show(500);
 	})
 }
 
@@ -257,8 +295,6 @@ function method_ExportPicture(params, _this) {
 		}
 		return null;
 	};
-
-
 
 	// CÁC TRƯỜNG INPUT
 	const provider = $('.list-share-social-media .item.checked').attr('data-provider');
@@ -521,7 +557,7 @@ function ajaxFormSendMail() {
 }
 
 function clearImageUrlInputHidden() {
-	$('.button-prev-step').on('click', function () {
+	$('.button-prev-step').on('click', function() {
 		$('#image-url').val(null)
 	})
 }
@@ -531,6 +567,7 @@ function openCard() {
 		$(this).addClass('close');
 		$('.nhan-thiep .action').addClass('d-none');
 		$('.nhan-thiep .block-img-final').addClass('open');
+		$('.nhan-thiep .button-go-home').addClass('active');
 	})
 }
 
@@ -542,7 +579,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	loading().then(() => {
 		// FANCYBOX
 		setTimeout(() => {
-			$('#fancyboxOninit').trigger('click');
+			// $('#fancyboxOninit').trigger('click');
 		}, 3000);
 	});
 	// SVG CONTROL
