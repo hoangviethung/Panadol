@@ -621,6 +621,15 @@
 					.result-img {
 						width : 100%;
 						height: auto;
+
+						figure {
+							figcaption {
+								p {
+									font-size: 12px;
+								}
+							}
+						}
+
 					}
 
 					.list-step {
