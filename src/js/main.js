@@ -214,6 +214,7 @@ function exportPicture() {
 	// TỚI BƯỚC 3
 	$('.step-2 .button-next-step').on('click', function(e) {
 		const result = new Promise((resolve) => {
+			$('.step-2 .button-next-step span').html('đang gửi');
 			let widthX = $('#img-final').width();
 			let heightX = $('#img-final').height();
 			let widthY = $(window).width();
@@ -244,6 +245,7 @@ function exportPicture() {
 		})
 
 		result.then(imageCanvas => {
+			$('.step-2 .button-next-step span').html('gửi thiệp');
 			const ImageURL = imageCanvas;
 			document.querySelector("#download-hidden").setAttribute("href", ImageURL);
 		})
@@ -526,18 +528,6 @@ function ajaxFormSendMail() {
 			data: formData,
 			processData: false,
 			contentType: false,
-			// error: function(err) {
-			// 	$('#thong-bao h3').html('Đã gửi thiệp');
-			// 	$.fancybox.open({
-			// 		src: '#thong-bao',
-			// 		type: 'inline',
-			// 		opts: {
-			// 			hash: false,
-			// 			closeExisting: true,
-			// 		}
-			// 	})
-			// 	window.open("nhan-thiep.html", '_blank')
-			// },
 			success: function(res) {
 				if (res.Code === 200) {
 					$('#thong-bao h3').html(res.Message);
@@ -655,7 +645,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	loading().then(() => {
 		// FANCYBOX
 		setTimeout(() => {
-			$('#fancyboxOninit').trigger('click');
+			// $('#fancyboxOninit').trigger('click');
 		}, 3000);
 	});
 	// SVG CONTROL
