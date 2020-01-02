@@ -369,7 +369,8 @@ function method_ExportPicture(params, _this) {
 				// 			touch: false,
 				// 		}
 				// 	})
-				// 	$('#coppy-link input').val('ádasdasd');
+				// 	const hostname = window.location.hostname;
+				// 	$('#coppy-link input').val(hostname + 'ádasdasd');
 				// 	$('#coppy-link button').on('click', function() {
 				// 		var copyText = document.getElementById("link-final");
 				// 		copyText.select();
@@ -389,7 +390,8 @@ function method_ExportPicture(params, _this) {
 								touch: false,
 							}
 						})
-						$('#coppy-link input').val(res.Result);
+						const hostname = window.location.hostname;
+						$('#coppy-link input').val(hostname + res.Result);
 						$('#coppy-link button').on('click', function() {
 							var copyText = document.getElementById("link-final");
 							copyText.select();
