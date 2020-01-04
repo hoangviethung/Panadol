@@ -62,8 +62,8 @@
 		position  : absolute;
 		left      : 50%;
 		top       : 55%;
-		width     : 500px;
-		height    : 500px;
+		width     : 400px;
+		height    : 400px;
 
 		.card {
 			cursor       : pointer;
@@ -100,8 +100,8 @@
 		pointer-events: none;
 		visibility    : hidden;
 		top           : 50%;
-		width         : 500px;
-		height        : 500px;
+		width         : 400px;
+		height        : 400px;
 
 		&.open {
 			opacity       : 1;
@@ -140,7 +140,7 @@
 
 	@media (max-height: 767.98px) {
 		.title {
-			width: 50%;
+			width: 30%;
 
 			h2 {
 				font-size: 14px;
@@ -156,6 +156,26 @@
 		.block-img-final {
 			width : 200px;
 			height: 200px;
+		}
+	}
+
+	@media (max-height: 575.98px) {
+		.title {
+			width: 20%;
+
+			h2 {
+				font-size: 10px;
+			}
+		}
+
+		.block-nhan-thiep {
+			width : 100px;
+			height: 100px;
+		}
+
+		.block-img-final {
+			width : 100px;
+			height: 100px;
 		}
 	}
 
